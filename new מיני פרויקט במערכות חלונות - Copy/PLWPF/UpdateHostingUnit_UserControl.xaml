@@ -1,0 +1,52 @@
+﻿<UserControl x:Class="PLWPF.UpdateHostingUnit_UserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PLWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0">
+            <TextBlock Text="Enter the key of the unit you want to update"/>
+            <TextBox x:Name="KeyTextBox"/>
+            <Button x:Name="key_Button" Content="Search hosting unit" Click="keyButton_Click"/>
+
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <TextBlock Text="Hosting unit Name: "/>
+            <TextBox x:Name="HostingUnitName_TextBox"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <TextBlock x:Name="SubareaTextBlock"/>
+            <ComboBox x:Name="HostingUnitArea_ComboBox" />
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0">
+            <TextBlock Text="Hosting unit Sub-area: "/>
+            <TextBox x:Name="HostingUnitSubArea_Textbox"/>
+        </StackPanel>
+        <StackPanel Grid.Row="4" Grid.Column="0">
+            <CheckBox x:Name="HostingUnitSwimmingPool_CheckBox" Content="Swimming Pool" />
+            <CheckBox x:Name="HostingUnitJacuzzi_CheckBox" Content="Jacuzzi"/>
+            <CheckBox x:Name="HostingUnitGarden_CheckBox" Content="Garden"/>
+            <CheckBox x:Name="HostingUnitChildrensAttractions_CheckBox" Content="Childrens Attractions"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
+            <Viewbox Name ="vbCalendar" Stretch="Fill" HorizontalAlignment="Center"/>
+            <Calendar x:Name="MyCalendar" DisplayMode="Month" SelectionMode="MultipleRange" DisplayDateStart="1.1.2020" DisplayDateEnd ="12.31.2020"/>
+            
+        </StackPanel>
+<Button x:Name="Save_Button" Content="Save" Grid.Row="4" Grid.Column="1" Click="SaveButton_Click"/>
+    </Grid>
+</UserControl>

@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="PLWPF.AddHostingUnit_UserControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PLWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+            <TextBlock  Text="Please fill in the following fields of your hosting unit:" FontSize="30" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <StackPanel Grid.Row="1" Grid.Column="0">
+            <TextBlock Text="Enter hosting unit Name: "/>
+            <TextBox x:Name="HostingUnitName_TextBox"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0">
+            <TextBlock Text="Enter hosting unit Suba-area: "/>
+            <TextBox x:Name="HostingUnitSubArea_Textbox"/>
+        </StackPanel>
+            <StackPanel Grid.Row="3" Grid.Column="0">
+            <ComboBox x:Name="HostingUnitArea_ComboBox" />
+        </StackPanel>
+        <CheckBox x:Name="HostingUnitSwimmingPool_CheckBox" Content="Swimming Pool" Grid.Row="4" Grid.Column="0"/>
+        <CheckBox x:Name="HostingUnitJacuzzi_CheckBox" Content="Jacuzzi" Grid.Row="1" Grid.Column="1"/>
+        <CheckBox x:Name="HostingUnitGarden_CheckBox" Content="Garden" Grid.Row="2" Grid.Column="1"/>
+        <CheckBox x:Name="HostingUnitChildrensAttractions_CheckBox" Content="Childrens Attractions" Grid.Row="3" Grid.Column="1"/>
+        <Button x:Name="Save_Button" Content="Save" Grid.Row="4" Grid.Column="1" Click="SaveButton_Click"/>
+    </Grid>
+</UserControl>
