@@ -8,6 +8,7 @@ namespace BE
 {
     public class Host
     {
+        //Michael
         public long HostKey { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
