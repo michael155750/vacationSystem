@@ -9,13 +9,20 @@ namespace BL
 {
    public sealed class FactoryBL : Ibl
     {
-        //private static readonly FactoryBL instance = new FactoryBL();
-        //public static FactoryBL Instance { get { return instance; } }
+        private static FactoryBL instance = null;
+        private static readonly object padlock = new object();
 
-        public static Ibl getBL()
+        public static FactoryBL Instance
         {
-            //return Instance;
-            return new BL_imp();
+            get
+            {
+                lock (padlock)
+                {
+                    if (instance == null)
+                        instance = new FactoryBL();
+                    return instance;
+                }
+            }
         }
 
         public void AddOrder(long guestReqKey, long UnitKey)
@@ -175,6 +182,16 @@ namespace BL
             throw new NotImplementedException();
         }
         public void UpdateUnit(HostingUnit hostingUnit, long key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<HostingUnit> MachUnitToRequest(GuestRequest gue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ChoiceCompare(Choice choice, bool booly)
         {
             throw new NotImplementedException();
         }

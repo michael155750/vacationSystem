@@ -171,6 +171,23 @@ namespace BL
         Host FindHostByKey(long key);
 
         /// <summary>
+        /// The function get a guest request and return all the hosting unit
+        /// mach by details
+        /// 
+        /// </summary>
+        /// <param name="gue"></param>
+        /// <returns></returns>
+        List<HostingUnit> MachUnitToRequest(GuestRequest gue);
+        /// <summary>
+        /// The function gets a choice type and bool type and compare them
+        /// third condition could be true or false
+        /// </summary>
+        /// <param name="choice"></param>
+        /// <param name="booly"></param>
+        /// <returns></returns>
+        bool ChoiceCompare(Choice choice, bool booly);
+
+        /// <summary>
         /// Returns all the guest request in the data source
         /// grouping by areas
         /// </summary>

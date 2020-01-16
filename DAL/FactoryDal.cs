@@ -85,5 +85,15 @@ namespace DAL
         {
             throw new NotImplementedException();
         }
+
+        public void AddUnitAndHost(HostingUnit hostingUnit, Host host)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateUnit(HostingUnit hostingUnit, long key)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

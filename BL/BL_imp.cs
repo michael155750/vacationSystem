@@ -11,7 +11,7 @@ namespace BL
     public class BL_imp : Ibl
     {
         //DAL.Idal dal = FactoryDal.Instance.getDal();
-        DAL.Idal dal = FactoryDal.getDal();
+        DAL.Idal dal = FactoryDal.Instance;
 
         #region Guest request
 
@@ -605,6 +605,35 @@ namespace BL
         }
 
         #endregion
+
+        //diferent region?
+        List<HostingUnit> MachUnitToRequest(GuestRequest gue)
+        {
+            var a = from item in dal.GetAllUnits()
+                    let beds = gue.Children + gue.Adults
+                    where item.Area == gue.Area
+                       && item.SubArea == gue.SubArea
+                       && item.Beds >= beds
+                       && ChoiceCompare(gue.Garden, item.Garden)
+                       && ChoiceCompare(gue.Pool, item.Pool)
+                       && ChoiceCompare(gue.Jacuzzi, item.Jacuzzi)
+                       && ChoiceCompare(gue.ChildrensAttractions, item.ChildrensAttractions)
+                    select item;
+
+
+            return (List<HostingUnit>)a;
+
+        }
+
+        bool ChoiceCompare(Choice choice, bool booly)
+        {
+            if (booly)
+                return true;
+            else if (choice == Choice.Possible || choice == Choice.Unnecessary)
+                return true;
+            else return false;
+        }
+
 
     }
 }
