@@ -9,15 +9,23 @@ namespace DAL
 {
     public sealed class FactoryDal : Idal
     {
-        //private static readonly FactoryDal instance = new FactoryDal();
+        private static  FactoryDal instance = null;
+        private static readonly object padlock = new object();
 
-        //public static FactoryDal Instance { get { return instance; } }
 
-        public static Idal getDal()
+        public static FactoryDal Instance
         {
-            //return Instance;
-            return new Dal_imp();
+            get
+            {
+                lock (padlock)
+                {
+                    if (instance == null)
+                        instance = new FactoryDal();
+                    return instance;
+                }
+            }
         }
+
         public void AddOrder(Order order)
         {
             throw new NotImplementedException();
@@ -29,11 +37,6 @@ namespace DAL
         }
 
         public void AddUnit(HostingUnit hostingUnit)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void AddUnitAndHost(HostingUnit hostingUnit, Host host)
         {
             throw new NotImplementedException();
         }
@@ -61,7 +64,12 @@ namespace DAL
         public IEnumerable<HostingUnit> GetAllUnits()
         {
             throw new NotImplementedException();
-        }       
+        }
+
+        public Idal getDal()
+        {
+            return Instance;
+        }
 
         public void UpdateOrder(Order order)
         {
@@ -74,10 +82,6 @@ namespace DAL
         }
 
         public void UpdateUnit(HostingUnit hostingUnit)
-        {
-            throw new NotImplementedException();
-        }
-        public void UpdateUnit(HostingUnit hostingUnit ,long key)
         {
             throw new NotImplementedException();
         }
