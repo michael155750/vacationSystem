@@ -184,5 +184,30 @@ namespace BL
         {
             throw new NotImplementedException();
         }
+
+        IEnumerable<IGrouping<Areas, GuestRequest>> Ibl.ReqGroupByArea()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<IGrouping<int, GuestRequest>> Ibl.ReqGroupByGuestNum()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<IGrouping<long, HostingUnit>> Ibl.HostsGroupByUnits()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<IGrouping<Areas, HostingUnit>> Ibl.UnitsGroupByArea()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<IGrouping<long, Order>> Ibl.OrdersGroupByUnit()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

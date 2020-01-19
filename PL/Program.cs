@@ -599,7 +599,7 @@ namespace PL
                         break;
                 }
 
-                Console.WriteLine("Please enter your choice: /n");
+                Console.WriteLine("Please enter your choice:");
                 input = Console.ReadLine();
                 choice = (SelectFunc)Convert.ToInt32(input);
             }

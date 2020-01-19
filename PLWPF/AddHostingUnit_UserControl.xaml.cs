@@ -23,7 +23,7 @@ namespace PLWPF
     /// </summary>
     public partial class AddHostingUnit_UserControl : UserControl
     {
-        BL.Ibl bl = FactoryBL.getBL();//צריך להבין איך להעביר את המידע בין החלונות ולכן מופה זה הינו זמני בלבד!!!!
+        BL.Ibl bl = new FactoryBL().GetBL();//צריך להבין איך להעביר את המידע בין החלונות ולכן מופע זה הינו זמני בלבד!!!!
 
         HostingUnit h = new HostingUnit();
 

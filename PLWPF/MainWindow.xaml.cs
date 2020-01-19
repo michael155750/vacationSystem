@@ -23,7 +23,7 @@ namespace PLWPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        BL.Ibl bl = FactoryBL.getBL();
+        BL.Ibl bl = new FactoryBL().GetBL();
         
         public MainWindow()
         {

@@ -480,7 +480,7 @@ namespace BL
 
         #region Grouping
 
-        public List<IGrouping<Areas, GuestRequest>> ReqGroupByArea()
+        public IEnumerable<IGrouping<Areas, GuestRequest>> ReqGroupByArea()
         {
             //var result = from item in dal.GetAllRequests()
             //             group item by item.Area into grou
@@ -495,11 +495,11 @@ namespace BL
             var result = from item in dal.GetAllRequests()
                          group item by item.Area into grou                         
                          select grou;
-            return (List<IGrouping<Areas, GuestRequest>>)result;
+            return result;
 
         }
 
-        public List<IGrouping<int, GuestRequest>> ReqGroupByGuestNum()
+        public IEnumerable<IGrouping<int, GuestRequest>> ReqGroupByGuestNum()
         {
             var result = from item in dal.GetAllRequests()
                          let GuestNum = item.Children + item.Adults
@@ -507,35 +507,34 @@ namespace BL
                          select grou;
 
 
-            return (List<IGrouping<int, GuestRequest>>)result;
-
+            return result;
         }
 
-        public List<IGrouping<int, Host>> HostsGroupByUnits()
+        public IEnumerable<IGrouping<long, HostingUnit>> HostsGroupByUnits()
         {
             var result = from item in dal.GetAllUnits()
                          group item by item.Owner.HostKey into grou
                          orderby grou.Count()
                          select grou;
-            return (List<IGrouping<int, Host>>)result;
+            return result;
 
 
         }
 
-        public List<IGrouping<Areas, HostingUnit>> UnitsGroupByArea()
+        public IEnumerable<IGrouping<Areas, HostingUnit>> UnitsGroupByArea()
         {
             var result = from item in dal.GetAllUnits()
                          group item by item.Area into grou
                          select grou;
-            return (List<IGrouping<Areas, HostingUnit>>)result;
+            return result;
         }
 
-        public List<IGrouping<HostingUnit, Order>> OrdersGroupByUnit()
+        public IEnumerable<IGrouping<long, Order>> OrdersGroupByUnit()
         {
             var result = from item in dal.GetAllOrders()
                          group item by item.HostingUnitKey into grou
                          select grou;
-            return (List<IGrouping<HostingUnit, Order>>)result;
+            return result;
         }
 
         #endregion

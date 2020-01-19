@@ -192,29 +192,29 @@ namespace BL
         /// grouping by areas
         /// </summary>
         /// <returns></returns>
-        List<IGrouping<Areas, GuestRequest>> ReqGroupByArea();
+        IEnumerable<IGrouping<Areas, GuestRequest>> ReqGroupByArea();
         /// <summary>
         /// Returns all the guest request in the data source
         /// grouping by number of guests
         /// </summary>
         /// <returns></returns>
-        List<IGrouping<int, GuestRequest>> ReqGroupByGuestNum();
+        IEnumerable<IGrouping<int, GuestRequest>> ReqGroupByGuestNum();
         /// <summary>
         /// return a list of hosts grouping by the number of units
         /// they own
         /// </summary>
         /// <returns></returns>
-        List<IGrouping<int, Host>> HostsGroupByUnits();
+        IEnumerable<IGrouping<long, HostingUnit>> HostsGroupByUnits();
         /// <summary>
         /// Return a list of hosting units grouping by their areas
         /// </summary>
         /// <returns></returns>
-        List<IGrouping<Areas, HostingUnit>> UnitsGroupByArea();
+        IEnumerable<IGrouping<Areas, HostingUnit>> UnitsGroupByArea();
         /// <summary>
         /// Return a list of orders grouping by hosting unit 
         /// </summary>
         /// <returns></returns>
-        List<IGrouping<HostingUnit, Order>> OrdersGroupByUnit();
+        IEnumerable<IGrouping<long, Order>> OrdersGroupByUnit();
         /// <summary>
         /// find the branch from the pool
         /// </summary>
