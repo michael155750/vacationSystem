@@ -69,9 +69,9 @@ namespace PLWPF
                 hostingUnit.ChildrensAttractions = HostingUnitChildrensAttractions_CheckBox.IsChecked.Value;
 
                 List<DateTime> myList = MyCalendar.SelectedDates.ToList();
-                MyCalendar = CreateCalendar();
-                vbCalendar.Child = null;
-                vbCalendar.Child = MyCalendar;
+                //MyCalendar = CreateCalendar();
+                //vbCalendar.Child = null;
+                //vbCalendar.Child = MyCalendar;
                 addCurrentList(myList , hostingUnit);
                 SetBlackOutDates(hostingUnit);
 

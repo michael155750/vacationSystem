@@ -17,7 +17,10 @@
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <DockPanel Grid.Row="3" Grid.Column="1" LastChildFill="False">
-            <Button x:Name="SaveHostDetailsButton" Content="Save and continue" Click="SaveHostDetails_Click" DockPanel.Dock="Bottom" />
+            <Button x:Name="NextButton" Content="next" Click="SaveHostDetails_Click" DockPanel.Dock="Bottom" />
+        </DockPanel>
+        <DockPanel Grid.Row="3" Grid.Column="0" LastChildFill="False">
+            <Button x:Name="PrevButton" Content="prev" Click="SaveHostDetails_Click" DockPanel.Dock="Bottom" />
         </DockPanel>
     </Grid>
 </Window>
