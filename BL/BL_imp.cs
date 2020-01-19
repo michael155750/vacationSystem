@@ -10,12 +10,11 @@ namespace BL
 {
     public class BL_imp : Ibl
     {
-        private BL_imp()
+        private BL_imp()//need to delete this function?
         {
         }
         private static BL_imp instance = null;
         private static readonly object padlock = new object();
-
 
         public static BL_imp Instance
         {
@@ -29,7 +28,6 @@ namespace BL
                 }
             }
         }
-
 
         DAL.Idal dal = new FactoryDal().GetDal();
 
@@ -125,6 +123,7 @@ namespace BL
 
         public void AddUnit(HostingUnit hostingUnit)
         {
+            hostingUnit.BookedDays = new List<DateTime>();
             hostingUnit.Diary = new bool[12, 31];
             for (int i = 0; i < 12; i++)
             {

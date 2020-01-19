@@ -22,12 +22,13 @@ namespace PLWPF
     /// </summary>
     public partial class UpdateHostingUnit_UserControl : UserControl
     {
-        BL.Ibl bl = FactoryBL.getBL();
+        BL.Ibl bl = new FactoryBL().GetBL();
         HostingUnit hostingUnit = new HostingUnit();
+        private Calendar MyCalendar;
         long key = 0;
         public UpdateHostingUnit_UserControl()
         {           
-            InitializeComponent();
+            InitializeComponent();      
 
             for (int i = 1; i < 5; i++)
             {
@@ -42,6 +43,8 @@ namespace PLWPF
             {
                 key = long.Parse(KeyTextBox.Text);
                 hostingUnit = bl.FindUnitByKey(key);
+
+                MainGrid.DataContext = hostingUnit;
 
                 HostingUnitName_TextBox.Text = hostingUnit.HostingUnitName;
                 HostingUnitSubArea_Textbox.Text = hostingUnit.SubArea;
@@ -69,11 +72,13 @@ namespace PLWPF
                 hostingUnit.ChildrensAttractions = HostingUnitChildrensAttractions_CheckBox.IsChecked.Value;
 
                 List<DateTime> myList = MyCalendar.SelectedDates.ToList();
-                //MyCalendar = CreateCalendar();
-                //vbCalendar.Child = null;
-                //vbCalendar.Child = MyCalendar;
+
+                MyCalendar = CreateCalendar();              
                 addCurrentList(myList , hostingUnit);
                 SetBlackOutDates(hostingUnit);
+
+                vbCalendar.Child = null;
+                vbCalendar.Child = MyCalendar;
 
                 bl.UpdateUnit(hostingUnit, key);
             }
@@ -84,18 +89,21 @@ namespace PLWPF
         }
         private void SetBlackOutDates(HostingUnit hostingUnit)
         {
-            foreach (DateTime date in hostingUnit.BookedDays)
-            {
-                MyCalendar.BlackoutDates.Add(new CalendarDateRange(date));
-            }
+            if(hostingUnit.BookedDays.Count > 0)
+                foreach (DateTime date in hostingUnit.BookedDays)
+                {
+                    MyCalendar.BlackoutDates.Add(new CalendarDateRange(date));
+                }
         }
         private Calendar CreateCalendar()
         {
             Calendar MonthlyCalendar = new Calendar();
             MonthlyCalendar.Name = "MonthlyCalendar";
             MonthlyCalendar.DisplayMode = CalendarMode.Month;
-            MonthlyCalendar.SelectionMode = CalendarSelectionMode.SingleRange;
-            MonthlyCalendar.IsTodayHighlighted = true;
+            MonthlyCalendar.SelectionMode = CalendarSelectionMode.MultipleRange;
+            MonthlyCalendar.IsTodayHighlighted = true;           
+            MonthlyCalendar.DisplayDateStart = DateTime.Parse("1.1.2020");
+            MonthlyCalendar.DisplayDateEnd = DateTime.Parse("12.31.2020");
             return MonthlyCalendar;
         }
         private void addCurrentList(List<DateTime> tList, HostingUnit hostingUnit)

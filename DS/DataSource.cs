@@ -23,7 +23,7 @@ namespace DS
                 Garden = true,
                 ChildrensAttractions = false,
                 Beds = 3,
-                
+                BookedDays = new List<DateTime>(),
 
                 Owner = new Host()
                 {
@@ -56,6 +56,8 @@ namespace DS
                 Garden = true,
                 ChildrensAttractions = false,
                 Beds = 5,
+                BookedDays = new List<DateTime>(),
+
                 Owner = new Host()
                 {
                     HostKey = 10000001,
@@ -87,6 +89,7 @@ namespace DS
                 Garden = true,
                 ChildrensAttractions = false,
                 Beds = 6,
+                BookedDays = new List<DateTime>(),
 
                 Owner = new Host()
                 {

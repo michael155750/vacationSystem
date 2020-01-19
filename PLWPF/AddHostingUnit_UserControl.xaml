@@ -21,19 +21,33 @@
             <TextBlock  Text="Please fill in the following fields of your hosting unit:" FontSize="30" Grid.Row="0" Grid.ColumnSpan="2"/>
         <StackPanel Grid.Row="1" Grid.Column="0">
             <TextBlock Text="Enter hosting unit Name: "/>
-            <TextBox x:Name="HostingUnitName_TextBox"/>
+            <TextBox x:Name="HostingUnitName_TextBox" Text="{Binding Path=HostingUnitName, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="0">
             <TextBlock Text="Enter hosting unit Suba-area: "/>
-            <TextBox x:Name="HostingUnitSubArea_Textbox"/>
+            <TextBox x:Name="HostingUnitSubArea_Textbox" Text="{Binding Path= SubArea, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
         </StackPanel>
             <StackPanel Grid.Row="3" Grid.Column="0">
             <ComboBox x:Name="HostingUnitArea_ComboBox" />
         </StackPanel>
-        <CheckBox x:Name="HostingUnitSwimmingPool_CheckBox" Content="Swimming Pool" Grid.Row="4" Grid.Column="0"/>
-        <CheckBox x:Name="HostingUnitJacuzzi_CheckBox" Content="Jacuzzi" Grid.Row="1" Grid.Column="1"/>
-        <CheckBox x:Name="HostingUnitGarden_CheckBox" Content="Garden" Grid.Row="2" Grid.Column="1"/>
-        <CheckBox x:Name="HostingUnitChildrensAttractions_CheckBox" Content="Childrens Attractions" Grid.Row="3" Grid.Column="1"/>
-        <Button x:Name="Save_Button" Content="Save" Grid.Row="4" Grid.Column="1" Click="SaveButton_Click"/>
+        <StackPanel Grid.Row="4" Grid.Column="0">
+            <TextBlock Text="Enter the number of beds in the unit: "/>
+            <TextBox x:Name="HostingUnitBeds_Textbox" Text="{Binding Path= Beds, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
+        </StackPanel>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <CheckBox x:Name="HostingUnitSwimmingPool_CheckBox" Content="Swimming Pool" IsChecked ="{Binding Path=Pool, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"  Grid.Row="4" Grid.Column="0"/>
+                <CheckBox x:Name="HostingUnitJacuzzi_CheckBox" Content="Jacuzzi" IsChecked ="{Binding Path=Jacuzzi, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
+            </StackPanel>
+            <StackPanel Grid.Column="1">
+                <CheckBox x:Name="HostingUnitChildrensAttractions_CheckBox" Content="Childrens Attractions" IsChecked ="{Binding Path=ChildrensAttractions, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
+                <CheckBox x:Name="HostingUnitGarden_CheckBox" Content="Garden" IsChecked ="{Binding Path=Garden, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
+            </StackPanel>            
+        </Grid>
+        <Button x:Name="SaveButton" Content="Save" Grid.Row="4" Grid.Column="1" Click="SaveButton_Click"/>
     </Grid>
 </UserControl>

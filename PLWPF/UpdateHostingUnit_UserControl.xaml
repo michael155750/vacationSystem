@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PLWPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -22,11 +22,10 @@
             <TextBlock Text="Enter the key of the unit you want to update"/>
             <TextBox x:Name="KeyTextBox"/>
             <Button x:Name="key_Button" Content="Search hosting unit" Click="keyButton_Click"/>
-
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0">
             <TextBlock Text="Hosting unit Name: "/>
-            <TextBox x:Name="HostingUnitName_TextBox"/>
+            <TextBox x:Name="HostingUnitName_TextBox" Text="{Binding Path=HostingUnitName, Mode=TwoWay, UpdateSourceTrigger =Explicit}"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="0">
             <TextBlock x:Name="SubareaTextBlock"/>
@@ -44,8 +43,7 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" Grid.RowSpan="2">
             <Viewbox Name ="vbCalendar" Stretch="Fill" HorizontalAlignment="Center"/>
-            <Calendar x:Name="MyCalendar" DisplayMode="Month" SelectionMode="MultipleRange" DisplayDateStart="1.1.2020" DisplayDateEnd ="12.31.2020"/>
-            
+            <!--<Calendar x:Name="MyCalendar" DisplayMode="Month" SelectionMode="MultipleRange" DisplayDateStart="1.1.2020" DisplayDateEnd ="12.31.2020"/>-->            
         </StackPanel>
 <Button x:Name="Save_Button" Content="Save" Grid.Row="4" Grid.Column="1" Click="SaveButton_Click"/>
     </Grid>

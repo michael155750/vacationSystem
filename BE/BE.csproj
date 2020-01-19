@@ -46,7 +46,6 @@
     <Compile Include="GuestRequest.cs" />
     <Compile Include="HostingUnit.cs" />
     <Compile Include="Host.cs" />
-    <Compile Include="MyException.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Configuration.cs" />

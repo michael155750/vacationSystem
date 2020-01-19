@@ -27,7 +27,6 @@ namespace PLWPF
         public HostDetails_UserControl()
         {
             InitializeComponent();
-            
         }
 
         private void SaveHostDetails_Click(object sender, RoutedEventArgs e)

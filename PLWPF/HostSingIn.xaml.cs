@@ -19,16 +19,18 @@ namespace PLWPF
     /// </summary>
     public partial class HostSingIn : Window
     {
+        HostDetails_UserControl hostDetails_UserControl = new HostDetails_UserControl();
+
         public HostSingIn()
         {
-            InitializeComponent();
-
             HostDetails_UserControl hostDetails_UserControl = new HostDetails_UserControl();
-            MainGrid.Children.Add(hostDetails_UserControl);
+            InitializeComponent();
+            UcGrid.Children.Add(hostDetails_UserControl);
         }
         private void SaveHostDetails_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("");
+
         }
+       
     }
 }

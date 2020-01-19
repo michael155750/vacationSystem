@@ -25,12 +25,11 @@ namespace PLWPF
     {
         BL.Ibl bl = new FactoryBL().GetBL();//צריך להבין איך להעביר את המידע בין החלונות ולכן מופע זה הינו זמני בלבד!!!!
 
-        HostingUnit h = new HostingUnit();
+        HostingUnit hostingUnit = new HostingUnit();
 
         public AddHostingUnit_UserControl()
         {
             InitializeComponent();
-
             for(int i = 1; i < 5; i++)
             {
                 ComboBoxItem tmp = new ComboBoxItem();
@@ -38,28 +37,48 @@ namespace PLWPF
                 HostingUnitArea_ComboBox.Items.Add(tmp);
             }
 
+            MainGrid.DataContext = hostingUnit;
+
         }
         private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            h.HostingUnitName = HostingUnitName_TextBox.Text;
-            h.SubArea = HostingUnitSubArea_Textbox.Text;
-            h.Area = (Areas)(HostingUnitArea_ComboBox.SelectedIndex+1);
-
-            h.Pool = HostingUnitSwimmingPool_CheckBox.IsChecked.Value; //or just: .Value
-            h.Jacuzzi = HostingUnitJacuzzi_CheckBox.IsChecked.Value; //or just: .Value
-            h.Garden = HostingUnitGarden_CheckBox.IsChecked.Value; //or just: .Value
-            h.ChildrensAttractions = HostingUnitChildrensAttractions_CheckBox.IsChecked.Value; //or just: .Value
+            HostingUnitName_TextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            HostingUnitSubArea_Textbox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            HostingUnitSwimmingPool_CheckBox.GetBindingExpression(CheckBox.IsCheckedProperty).UpdateSource();
+            HostingUnitJacuzzi_CheckBox.GetBindingExpression(CheckBox.IsCheckedProperty).UpdateSource();
+            HostingUnitChildrensAttractions_CheckBox.GetBindingExpression(CheckBox.IsCheckedProperty).UpdateSource();
+            hostingUnit.Area = (Areas)(HostingUnitArea_ComboBox.SelectedIndex + 1);
 
             try
             {
-                bl.AddUnit(h);
+                bl.AddUnit(hostingUnit);
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-
-            InitializeComponent(); // מאפס את הנתונים שביוזר קונטרול הנוכחי
         }
+        //private void SaveButton_Click(object sender, RoutedEventArgs e)
+        //{
+        //    h.HostingUnitName = HostingUnitName_TextBox.Text;
+        //    h.SubArea = HostingUnitSubArea_Textbox.Text;
+        //    h.Area = (Areas)(HostingUnitArea_ComboBox.SelectedIndex+1);
+
+        //    h.Pool = HostingUnitSwimmingPool_CheckBox.IsChecked.Value; //or just: .Value
+        //    h.Jacuzzi = HostingUnitJacuzzi_CheckBox.IsChecked.Value; //or just: .Value
+        //    h.Garden = HostingUnitGarden_CheckBox.IsChecked.Value; //or just: .Value
+        //    h.ChildrensAttractions = HostingUnitChildrensAttractions_CheckBox.IsChecked.Value; //or just: .Value
+
+        //    try
+        //    {
+        //        bl.AddUnit(h);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        MessageBox.Show(ex.Message);
+        //    }
+
+        //    InitializeComponent(); // מאפס את הנתונים שביוזר קונטרול הנוכחי
+        //}
     }
 }
