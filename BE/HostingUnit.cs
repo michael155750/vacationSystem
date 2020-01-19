@@ -14,8 +14,8 @@ namespace BE
         public Areas Area { get; set; }
         public String SubArea { get; set; }
         public bool[,] Diary { get; set; }
-        public uint NumOfSingleBeds { get; set; }
-        public uint NumOfDoubleBeds { get; set; }
+        public uint Beds { get; set; }
+        
 
         public bool ChildrensAttractions { get; set; }
         public bool Garden { get; set; }

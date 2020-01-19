@@ -10,8 +10,28 @@ namespace BL
 {
     public class BL_imp : Ibl
     {
-        //DAL.Idal dal = FactoryDal.Instance.getDal();
-        DAL.Idal dal = FactoryDal.Instance;
+        private BL_imp()
+        {
+        }
+        private static BL_imp instance = null;
+        private static readonly object padlock = new object();
+
+
+        public static BL_imp Instance
+        {
+            get
+            {
+                lock (padlock)
+                {
+                    if (instance == null)
+                        instance = new BL_imp();
+                    return instance;
+                }
+            }
+        }
+
+
+        DAL.Idal dal = new FactoryDal().GetDal();
 
         #region Guest request
 
@@ -607,7 +627,7 @@ namespace BL
         #endregion
 
         //diferent region?
-        List<HostingUnit> MachUnitToRequest(GuestRequest gue)
+       public List<HostingUnit> MachUnitToRequest(GuestRequest gue)
         {
             var a = from item in dal.GetAllUnits()
                     let beds = gue.Children + gue.Adults

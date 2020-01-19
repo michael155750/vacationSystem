@@ -9,21 +9,10 @@ namespace DAL
 {
     public sealed class FactoryDal : Idal
     {
-        private static  FactoryDal instance = null;
-        private static readonly object padlock = new object();
-
-
-        public static FactoryDal Instance
+        
+        public Idal GetDal()
         {
-            get
-            {
-                lock (padlock)
-                {
-                    if (instance == null)
-                        instance = new FactoryDal();
-                    return instance;
-                }
-            }
+            return  Dal_imp.Instance;
         }
 
         public void AddOrder(Order order)
@@ -66,10 +55,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public Idal getDal()
-        {
-            return Instance;
-        }
+        
 
         public void UpdateOrder(Order order)
         {

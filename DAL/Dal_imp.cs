@@ -11,7 +11,27 @@ namespace DAL
 {
     public class Dal_imp : Idal
     {
-        
+        private Dal_imp()
+        {
+        }
+        private static Dal_imp instance = null;
+        private static readonly object padlock = new object();
+
+
+        public static Dal_imp Instance
+        {
+            get
+            {
+                lock (padlock)
+                {
+                    if (instance == null)
+                        instance = new Dal_imp();
+                    return instance;
+                }
+            }
+        }
+
+
         #region Guest request
 
         public void AddRequest(GuestRequest guestRequest)

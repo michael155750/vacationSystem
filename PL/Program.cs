@@ -46,8 +46,8 @@ namespace PL
     {
         static void Main(string[] args)
         {
-            //BL.Ibl bl = FactoryBL.Instance.getBL();
-            BL.Ibl bl = FactoryBL.getBL();
+            
+            BL.Ibl bl = new FactoryBL().GetBL();
 
             SelectFunc choice = (SelectFunc)100;
 

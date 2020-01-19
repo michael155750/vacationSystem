@@ -185,7 +185,7 @@ namespace BL
         /// <param name="choice"></param>
         /// <param name="booly"></param>
         /// <returns></returns>
-        bool ChoiceCompare(Choice choice, bool booly);
+        //bool ChoiceCompare(Choice choice, bool booly);
 
         /// <summary>
         /// Returns all the guest request in the data source

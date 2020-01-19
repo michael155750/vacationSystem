@@ -9,20 +9,9 @@ namespace BL
 {
    public sealed class FactoryBL : Ibl
     {
-        private static FactoryBL instance = null;
-        private static readonly object padlock = new object();
-
-        public static FactoryBL Instance
+        public Ibl GetBL()
         {
-            get
-            {
-                lock (padlock)
-                {
-                    if (instance == null)
-                        instance = new FactoryBL();
-                    return instance;
-                }
-            }
+            return BL_imp.Instance;
         }
 
         public void AddOrder(long guestReqKey, long UnitKey)

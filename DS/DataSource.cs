@@ -22,6 +22,8 @@ namespace DS
                 Jacuzzi = true,
                 Garden = true,
                 ChildrensAttractions = false,
+                Beds = 3,
+                
 
                 Owner = new Host()
                 {
@@ -53,7 +55,7 @@ namespace DS
                 Jacuzzi = true,
                 Garden = true,
                 ChildrensAttractions = false,
-
+                Beds = 5,
                 Owner = new Host()
                 {
                     HostKey = 10000001,
@@ -84,6 +86,7 @@ namespace DS
                 Jacuzzi = true,
                 Garden = true,
                 ChildrensAttractions = false,
+                Beds = 6,
 
                 Owner = new Host()
                 {
