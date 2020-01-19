@@ -23,7 +23,7 @@ namespace PLWPF
     /// </summary>
     public partial class DeleteHostingUnit_UserControl : UserControl
     {
-        BL.Ibl bl = FactoryBL.getBL();//צריך להבין איך להעביר את המידע בין החלונות ולכן מופה זה הינו זמני בלבד!!!!
+        BL.Ibl bl = new FactoryBL().GetBL();//צריך להבין איך להעביר את המידע בין החלונות ולכן מופה זה הינו זמני בלבד!!!!
 
         public DeleteHostingUnit_UserControl()
         {

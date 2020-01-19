@@ -9,13 +9,9 @@ namespace BL
 {
    public sealed class FactoryBL : Ibl
     {
-        //private static readonly FactoryBL instance = new FactoryBL();
-        //public static FactoryBL Instance { get { return instance; } }
-
-        public static Ibl getBL()
+        public Ibl GetBL()
         {
-            //return Instance;
-            return new BL_imp();
+            return BL_imp.Instance;
         }
 
         public void AddOrder(long guestReqKey, long UnitKey)
@@ -175,6 +171,41 @@ namespace BL
             throw new NotImplementedException();
         }
         public void UpdateUnit(HostingUnit hostingUnit, long key)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<HostingUnit> MachUnitToRequest(GuestRequest gue)
+        {
+            throw new NotImplementedException();
+        }
+
+        public bool ChoiceCompare(Choice choice, bool booly)
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<IGrouping<Areas, GuestRequest>> Ibl.ReqGroupByArea()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<IGrouping<int, GuestRequest>> Ibl.ReqGroupByGuestNum()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<IGrouping<long, HostingUnit>> Ibl.HostsGroupByUnits()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<IGrouping<Areas, HostingUnit>> Ibl.UnitsGroupByArea()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<IGrouping<long, Order>> Ibl.OrdersGroupByUnit()
         {
             throw new NotImplementedException();
         }

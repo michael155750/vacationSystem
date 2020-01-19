@@ -10,8 +10,28 @@ namespace BL
 {
     public class BL_imp : Ibl
     {
-        //DAL.Idal dal = FactoryDal.Instance.getDal();
-        DAL.Idal dal = FactoryDal.getDal();
+        private BL_imp()
+        {
+        }
+        private static BL_imp instance = null;
+        private static readonly object padlock = new object();
+
+
+        public static BL_imp Instance
+        {
+            get
+            {
+                lock (padlock)
+                {
+                    if (instance == null)
+                        instance = new BL_imp();
+                    return instance;
+                }
+            }
+        }
+
+
+        DAL.Idal dal = new FactoryDal().GetDal();
 
         #region Guest request
 
@@ -460,7 +480,7 @@ namespace BL
 
         #region Grouping
 
-        public List<IGrouping<Areas, GuestRequest>> ReqGroupByArea()
+        public IEnumerable<IGrouping<Areas, GuestRequest>> ReqGroupByArea()
         {
             //var result = from item in dal.GetAllRequests()
             //             group item by item.Area into grou
@@ -475,11 +495,11 @@ namespace BL
             var result = from item in dal.GetAllRequests()
                          group item by item.Area into grou                         
                          select grou;
-            return (List<IGrouping<Areas, GuestRequest>>)result;
+            return result;
 
         }
 
-        public List<IGrouping<int, GuestRequest>> ReqGroupByGuestNum()
+        public IEnumerable<IGrouping<int, GuestRequest>> ReqGroupByGuestNum()
         {
             var result = from item in dal.GetAllRequests()
                          let GuestNum = item.Children + item.Adults
@@ -487,35 +507,34 @@ namespace BL
                          select grou;
 
 
-            return (List<IGrouping<int, GuestRequest>>)result;
-
+            return result;
         }
 
-        public List<IGrouping<int, Host>> HostsGroupByUnits()
+        public IEnumerable<IGrouping<long, HostingUnit>> HostsGroupByUnits()
         {
             var result = from item in dal.GetAllUnits()
                          group item by item.Owner.HostKey into grou
                          orderby grou.Count()
                          select grou;
-            return (List<IGrouping<int, Host>>)result;
+            return result;
 
 
         }
 
-        public List<IGrouping<Areas, HostingUnit>> UnitsGroupByArea()
+        public IEnumerable<IGrouping<Areas, HostingUnit>> UnitsGroupByArea()
         {
             var result = from item in dal.GetAllUnits()
                          group item by item.Area into grou
                          select grou;
-            return (List<IGrouping<Areas, HostingUnit>>)result;
+            return result;
         }
 
-        public List<IGrouping<HostingUnit, Order>> OrdersGroupByUnit()
+        public IEnumerable<IGrouping<long, Order>> OrdersGroupByUnit()
         {
             var result = from item in dal.GetAllOrders()
                          group item by item.HostingUnitKey into grou
                          select grou;
-            return (List<IGrouping<HostingUnit, Order>>)result;
+            return result;
         }
 
         #endregion
@@ -605,6 +624,35 @@ namespace BL
         }
 
         #endregion
+
+        //diferent region?
+       public List<HostingUnit> MachUnitToRequest(GuestRequest gue)
+        {
+            var a = from item in dal.GetAllUnits()
+                    let beds = gue.Children + gue.Adults
+                    where item.Area == gue.Area
+                       && item.SubArea == gue.SubArea
+                       && item.Beds >= beds
+                       && ChoiceCompare(gue.Garden, item.Garden)
+                       && ChoiceCompare(gue.Pool, item.Pool)
+                       && ChoiceCompare(gue.Jacuzzi, item.Jacuzzi)
+                       && ChoiceCompare(gue.ChildrensAttractions, item.ChildrensAttractions)
+                    select item;
+
+
+            return (List<HostingUnit>)a;
+
+        }
+
+        bool ChoiceCompare(Choice choice, bool booly)
+        {
+            if (booly)
+                return true;
+            else if (choice == Choice.Possible || choice == Choice.Unnecessary)
+                return true;
+            else return false;
+        }
+
 
     }
 }
