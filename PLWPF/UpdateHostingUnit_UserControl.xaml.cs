@@ -22,7 +22,7 @@ namespace PLWPF
     /// </summary>
     public partial class UpdateHostingUnit_UserControl : UserControl
     {
-        BL.Ibl bl = FactoryBL.getBL();
+        BL.Ibl bl = new FactoryBL().GetBL();
         HostingUnit hostingUnit = new HostingUnit();
         long key = 0;
         public UpdateHostingUnit_UserControl()
