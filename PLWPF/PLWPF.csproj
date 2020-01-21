@@ -64,6 +64,12 @@
     <Compile Include="HostSingIn.xaml.cs">
       <DependentUpon>HostSingIn.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Owner%27s password.xaml.cs">
+      <DependentUpon>Owner%27s password.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Owner_window.xaml.cs">
+      <DependentUpon>Owner_window.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UpdateHostingUnit_UserControl.xaml.cs">
       <DependentUpon>UpdateHostingUnit_UserControl.xaml</DependentUpon>
     </Compile>
@@ -112,6 +118,14 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Owner%27s password.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Owner_window.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="UpdateHostingUnit_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
