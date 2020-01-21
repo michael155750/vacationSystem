@@ -13,13 +13,19 @@ namespace BE
         public int BranchNumber { get; set; }
         public string BranchAddress { get; set; }
         public string BranchCity { get; set; }
+        public long BankAccountNumber { get; set; }
+        public float MyCommition { get; set; }
+        public YesNo CollectionClearance { get; set; }
         public override string ToString()
         {
-            return "Bank name: " + BankName.ToString() + "/n" +
-                "Bank Number: " + BankNumber.ToString() + "/n" +
-                "Branch number: " + BranchNumber.ToString() + "/n" +
-                "Branch address: " + BranchAddress.ToString() + "/n" +
-                "Branch city: " + BranchCity.ToString() + "/n";
+            return "Bank Account Number: " + BankAccountNumber.ToString() + "\n" +
+                    "my commition: " + MyCommition.ToString() + "\n" +
+                    "Collection Clearance? " + CollectionClearance.ToString() + "\n" +
+                    "Bank name: " + BankName.ToString() + "/n" +
+                    "Bank Number: " + BankNumber.ToString() + "/n" +
+                    "Branch number: " + BranchNumber.ToString() + "/n" +
+                    "Branch address: " + BranchAddress.ToString() + "/n" +
+                    "Branch city: " + BranchCity.ToString() + "/n";
         }
     }
 }

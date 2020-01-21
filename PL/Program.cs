@@ -206,7 +206,7 @@ namespace PL
                         host.FhoneNumber = Convert.ToInt64(Console.ReadLine());
 
                         Console.WriteLine("insert owner's bank account number");
-                        host.BankAccountNumber = Convert.ToInt64(Console.ReadLine());
+                        host.BankBranchDetails.BankAccountNumber = Convert.ToInt64(Console.ReadLine());
 
                         Console.WriteLine("Feel the bank branch details according this list");
                         foreach (var item in bl.GetAllBanks())

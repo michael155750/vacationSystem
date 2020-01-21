@@ -156,12 +156,12 @@ namespace BL
                     hostingUnit.Diary[i, j] = false;
                 }
             }
-            hostingUnit.Owner.MyCommition = 0;
+            hostingUnit.Owner.BankBranchDetails.MyCommition = 0;
 
             if (hostingUnit.Owner.FhoneNumber < 20000000 || hostingUnit.Owner.FhoneNumber > 9999999999)
                 throw new ArgumentOutOfRangeException("Please insert correct fhone number");
 
-            if (hostingUnit.Owner.CollectionClearance < 0 || hostingUnit.Owner.CollectionClearance > (YesNo)1)
+            if (hostingUnit.Owner.BankBranchDetails.CollectionClearance < 0 || hostingUnit.Owner.BankBranchDetails.CollectionClearance > (YesNo)1)
                 throw new InvalidEnumArgumentException("Please insert correct choice");
 
             try
@@ -394,7 +394,7 @@ namespace BL
                 if (item.HostingUnitKey == FindOrderByKey(orderKey).HostingUnitKey)
                     currentUnit = item;
             }
-            if (newStatus == OrderStatus.MailSend && currentUnit.Owner.CollectionClearance == YesNo.No)
+            if (newStatus == OrderStatus.MailSend && currentUnit.Owner.BankBranchDetails.CollectionClearance == YesNo.No)
                 throw new DataException("Their is not collection clearence");
 
             Order currentOrder = FindOrderByKey(orderKey);//find the current order to update
@@ -417,7 +417,7 @@ namespace BL
             if (newStatus == OrderStatus.DillMade)
             {
                 //Calculate the commition for the website
-                currentUnit.Owner.MyCommition +=
+                currentUnit.Owner.BankBranchDetails.MyCommition +=
                     DaysBetween(entryDate, releaseDate) * BE.Configuration.Commition;
 
                 //change the dates in the diary of the unit

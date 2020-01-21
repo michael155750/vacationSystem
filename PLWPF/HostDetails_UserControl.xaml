@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:PLWPF"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
             <ColumnDefinition Width="*"/>
@@ -21,19 +21,22 @@
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0" >
             <TextBlock x:Name="HostFirstNameTextBlock" Text="First name:"/>
-            <TextBox x:Name="HostFirstNameTextBox"/>
+
+            <TextBox x:Name="HostFirstNameTextBox" Text="{Binding FirstName, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="0" >
             <TextBlock x:Name="HostLastNameTextBlock" Text="Last name:"/>
-            <TextBox x:Name="HostLastNameTextBox"/>
+            <TextBox x:Name="HostLastNameTextBox" Text="{Binding LastName, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}"/>
+            <Button x:Name="PrevButton" Content="prev" Click="SaveHostDetails_Click" DockPanel.Dock="Bottom" />
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" >
             <TextBlock x:Name="HostPhoneTextBlock" Text="Phone Number:"/>
-            <TextBox x:Name="HostPhoneTextBox"/>
+            <TextBox x:Name="HostPhoneTextBox" Text="{Binding FhoneNumber, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1" >
             <TextBlock x:Name="HostMailTextBlock" Text="Mail adress:"/>
-            <TextBox x:Name="HostMailTextBox"/>
+            <TextBox x:Name="HostMailTextBox" Text="{Binding MailAddress, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}"/>
+            <Button x:Name="NextButton" Content="next" Click="SaveHostDetails_Click" DockPanel.Dock="Bottom" />
         </StackPanel>
     </Grid>
 </UserControl>

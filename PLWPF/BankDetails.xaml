@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="PLWPF.BankDetails"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:PLWPF"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="MainGrid">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>            
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <StackPanel Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2">
+            <TextBlock x:Name="BankDetailsTextBlock" Text="Please enter your Bank details:" FontSize="30"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="0" >
+            <TextBlock x:Name="BankNameTextBlock" Text="Bank Name: "/>
+            <TextBox x:Name="BankNameTextBox" Text="{Binding BankName , Mode=OneWayToSource, UpdateSourceTrigger=Explicit}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="0" >
+            <TextBlock x:Name="BankNumTextBlock" Text="Bank Number:"/>
+            <TextBox x:Name="HostLastNameTextBox" Text="{Binding BankNUmber , Mode=OneWayToSource, UpdateSourceTrigger=Explicit}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="1" Grid.Column="1" >
+            <TextBlock x:Name="BranchNumberTextBlock" Text="Branch Number :"/>
+            <TextBox x:Name="BranchNumberTextBox" Text="{Binding BranchNumber , Mode=OneWayToSource, UpdateSourceTrigger=Explicit}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.Column="1" >
+            <TextBlock x:Name="BranchAddressTextBlock" Text="Branch Address :"/>
+            <TextBox x:Name="BranchAddressTextBox" Text="{Binding BranchAddress , Mode=OneWayToSource, UpdateSourceTrigger=Explicit}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="1" >
+            <TextBlock x:Name="BankAccountNumberTextBlock" Text="Bank Account Number:"/>
+            <TextBox x:Name="BankAccountNumberTextBox" Text="{Binding BankAccountNumber , Mode=OneWayToSource, UpdateSourceTrigger=Explicit}"/>
+        </StackPanel>
+        <StackPanel Grid.Row="3" Grid.Column="0" >
+            <CheckBox x:Name="CollectionClearanceCheckBox" Content="Collection Clearance"/>
+        </StackPanel>
+        <Button x:Name="PrevButton" Content="prev" Click="SaveHostDetails_Click" DockPanel.Dock="Bottom" Grid.Row="4" Grid.Column="0" />
+        <Button x:Name="NextButton" Content="next" Click="SaveHostDetails_Click" DockPanel.Dock="Bottom" Grid.Row="4" Grid.Column="1" />
+    </Grid>
+</UserControl>

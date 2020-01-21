@@ -23,21 +23,36 @@ namespace PLWPF
     /// </summary>
     public partial class HostDetails_UserControl : UserControl
     {
-        HostingUnit h = new HostingUnit();
+        HostingUnit hostingUnit = new HostingUnit();
+
         public HostDetails_UserControl()
         {
             InitializeComponent();
+            MainGrid.DataContext = hostingUnit.Owner;
+        }
+        public HostDetails_UserControl(HostingUnit h)
+        {
+            hostingUnit = h;
+            InitializeComponent();
+            MainGrid.DataContext = hostingUnit.Owner;
         }
 
         private void SaveHostDetails_Click(object sender, RoutedEventArgs e)
         {
-            h.Owner = new Host();
-            h.Owner.FirstName = HostFirstNameTextBox.Text;
-            h.Owner.LastName = HostLastNameTextBox.Text;
-            h.Owner.FhoneNumber = int.Parse(HostPhoneTextBox.Text);
-            h.Owner.MailAddress = HostMailTextBox.Text;
+            //h.Owner = new Host();
+            //h.Owner.FirstName = HostFirstNameTextBox.Text;
+            //h.Owner.LastName = HostLastNameTextBox.Text;
+            //h.Owner.FhoneNumber = int.Parse(HostPhoneTextBox.Text);
+            //h.Owner.MailAddress = HostMailTextBox.Text;
+            HostFirstNameTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            HostLastNameTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            HostPhoneTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            HostMailTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
 
             MessageBox.Show("Saved!!!");
+            BankDetails bankDetails = new BankDetails();
+            (this.Parent as StackPanel).Children.Add(bankDetails);
+            (this.Parent as StackPanel).Children.Remove(this);
         }       
     }
 }

@@ -32,15 +32,16 @@ namespace DS
                     LastName = "Berg",
                     FhoneNumber = 0500000000,
                     MailAddress = "Michael@gmail.comm",
-                    BankAccountNumber = 111111,
-                    CollectionClearance = YesNo.Yes,
+
                     BankBranchDetails = new BankBranch()
                     {
                        BankName = "Hapoalim",
                        BankNumber = 12,
                        BranchAddress = "Aba Hushi 34",
                        BranchCity = "Haifa",
-                       BranchNumber = 456
+                       BranchNumber = 456,
+                       BankAccountNumber = 111111,
+                       CollectionClearance = YesNo.Yes,
                     }
                 }
             },
@@ -65,15 +66,16 @@ namespace DS
                     LastName = "Levi",
                     FhoneNumber = 0511111111,
                     MailAddress = "Tzur@gmail.comm",
-                    BankAccountNumber = 222222,
-                    CollectionClearance = YesNo.Yes,
+
                     BankBranchDetails = new BankBranch()
                     {
                         BankName = "Discount",
                         BankNumber = 11,
                         BranchAddress = "Zabotinsky 11",
                         BranchCity = "Jerusalem",
-                        BranchNumber = 203
+                        BranchNumber = 203,
+                        BankAccountNumber = 222222,
+                        CollectionClearance = YesNo.Yes,
                     }
                 }
             },
@@ -98,15 +100,16 @@ namespace DS
                     LastName = "MOshe",
                     FhoneNumber = 0533333333,
                     MailAddress = "David@gmail.comm",
-                    BankAccountNumber = 333333,
-                    CollectionClearance = YesNo.No,
+
                     BankBranchDetails = new BankBranch()
                     {
                         BankName = "Hapoalim",
                         BankNumber = 12,
                         BranchAddress = "Zabotinsky 15",
                         BranchCity = "Jerusalem",
-                        BranchNumber = 391
+                        BranchNumber = 391,
+                        BankAccountNumber = 333333,
+                        CollectionClearance = YesNo.No
                     }
                 }
             },

@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="BankDetails.xaml.cs">
+      <DependentUpon>BankDetails.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HostDetails_UserControl.xaml.cs">
       <DependentUpon>HostDetails_UserControl.xaml</DependentUpon>
     </Compile>
@@ -65,6 +68,10 @@
       <DependentUpon>UpdateHostingUnit_UserControl.xaml</DependentUpon>
     </Compile>
     <Page Include="AddHostingUnit_UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="BankDetails.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

@@ -23,20 +23,21 @@ namespace PLWPF
     /// </summary>
     public partial class AddHostingUnit_UserControl : UserControl
     {
-        BL.Ibl bl = new FactoryBL().GetBL();//צריך להבין איך להעביר את המידע בין החלונות ולכן מופע זה הינו זמני בלבד!!!!
-
+        BL.Ibl bl = new FactoryBL().GetBL();
         HostingUnit hostingUnit = new HostingUnit();
 
         public AddHostingUnit_UserControl()
         {
             InitializeComponent();
-            for(int i = 1; i < 5; i++)
-            {
-                ComboBoxItem tmp = new ComboBoxItem();
-                tmp.Content = (Areas)i;
-                HostingUnitArea_ComboBox.Items.Add(tmp);
-            }
+            this.HostingUnitArea_ComboBox.ItemsSource = Enum.GetValues(typeof(BE.Areas));
+            MainGrid.DataContext = hostingUnit;
 
+        }
+        public AddHostingUnit_UserControl(HostingUnit h)
+        {
+            InitializeComponent();
+            hostingUnit = h;
+            this.HostingUnitArea_ComboBox.ItemsSource = Enum.GetValues(typeof(BE.Areas));
             MainGrid.DataContext = hostingUnit;
 
         }
@@ -57,28 +58,8 @@ namespace PLWPF
             {
                 MessageBox.Show(ex.Message);
             }
+
+            (this.Parent as StackPanel).Children.Remove(this);
         }
-        //private void SaveButton_Click(object sender, RoutedEventArgs e)
-        //{
-        //    h.HostingUnitName = HostingUnitName_TextBox.Text;
-        //    h.SubArea = HostingUnitSubArea_Textbox.Text;
-        //    h.Area = (Areas)(HostingUnitArea_ComboBox.SelectedIndex+1);
-
-        //    h.Pool = HostingUnitSwimmingPool_CheckBox.IsChecked.Value; //or just: .Value
-        //    h.Jacuzzi = HostingUnitJacuzzi_CheckBox.IsChecked.Value; //or just: .Value
-        //    h.Garden = HostingUnitGarden_CheckBox.IsChecked.Value; //or just: .Value
-        //    h.ChildrensAttractions = HostingUnitChildrensAttractions_CheckBox.IsChecked.Value; //or just: .Value
-
-        //    try
-        //    {
-        //        bl.AddUnit(h);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        MessageBox.Show(ex.Message);
-        //    }
-
-        //    InitializeComponent(); // מאפס את הנתונים שביוזר קונטרול הנוכחי
-        //}
     }
 }

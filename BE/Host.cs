@@ -13,10 +13,7 @@ namespace BE
         public string LastName { get; set; }
         public long FhoneNumber { get; set; }
         public string MailAddress { get; set; }
-        public BankBranch BankBranchDetails { get; set; }
-        public long BankAccountNumber { get; set; }
-        public float MyCommition { get; set; }
-        public YesNo CollectionClearance { get; set; }
+        public BankBranch BankBranchDetails { get; set; }     
         public override string ToString()
         {
             return "Host key: " + HostKey.ToString() + "\n" +
@@ -24,10 +21,7 @@ namespace BE
                     "Last Name: " + LastName + "\n" +
                     "Fhone Number: " + FhoneNumber.ToString() + "\n" +
                     "Mail Address: " + MailAddress + "\n" +
-                    "Bank Branch Details: " + BankBranchDetails.ToString() + "\n" +
-                    "Bank Account Number: " + BankAccountNumber.ToString() + "\n" +
-                    "my commition: "+ MyCommition.ToString() + "\n" +
-                    "Collection Clearance? " + CollectionClearance.ToString() + "\n";
+                    "Bank Branch Details: " + BankBranchDetails.ToString() + "\n";
         }
 
     }

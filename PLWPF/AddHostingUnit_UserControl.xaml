@@ -28,7 +28,7 @@
             <TextBox x:Name="HostingUnitSubArea_Textbox" Text="{Binding Path= SubArea, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
         </StackPanel>
             <StackPanel Grid.Row="3" Grid.Column="0">
-            <ComboBox x:Name="HostingUnitArea_ComboBox" />
+            <ComboBox x:Name="HostingUnitArea_ComboBox"  />
         </StackPanel>
         <StackPanel Grid.Row="4" Grid.Column="0">
             <TextBlock Text="Enter the number of beds in the unit: "/>

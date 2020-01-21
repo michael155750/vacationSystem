@@ -28,15 +28,9 @@ namespace PLWPF
         long key = 0;
         public UpdateHostingUnit_UserControl()
         {           
-            InitializeComponent();      
-
-            for (int i = 1; i < 5; i++)
-            {
-                ComboBoxItem tmp = new ComboBoxItem();
-                tmp.Content = (Areas)i;
-                HostingUnitArea_ComboBox.Items.Add(tmp);
-            }
-    }
+            InitializeComponent();
+            this.HostingUnitArea_ComboBox.ItemsSource = Enum.GetValues(typeof(BE.Areas));
+        }
         private void keyButton_Click(object sender, RoutedEventArgs e)
         {
             try
