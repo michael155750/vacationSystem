@@ -655,8 +655,21 @@ namespace BL
         #region owner
         public float CalculateCommition()
         {
-            return from item in GetAllUnits()
-                   select new {}
+            var a = from item in GetAllUnits()
+                    select new { key=item.Owner.HostKey,
+                        comm=item.Owner.BankBranchDetails.MyCommition };
+           var b =  a.ToList();
+            float sum = 0;
+            foreach (var item in b)
+            {
+                foreach (var item2 in b)
+                {
+                    if (item.key == item2.key)
+                        b.Remove(item2);
+                }
+                sum += item.comm;
+            }
+            return sum;
         }
         #endregion
 

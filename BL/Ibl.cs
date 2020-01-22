@@ -222,6 +222,11 @@ namespace BL
         /// <param name="branchNum">branch number<branch number/param>
         /// <returns>new BankBranch</returns>
         BankBranch FindBranch(int bankNum, int branchNum);
+        /// <summary>
+        /// return the commition from all the hosts in the system
+        /// </summary>
+        /// <returns></returns>
+        float CalculateCommition();
 
 
     }
