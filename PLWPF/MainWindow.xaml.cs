@@ -32,11 +32,13 @@ namespace PLWPF
 
         private void OwnerButton_Click(object sender, RoutedEventArgs e)
         {
-            string password = OwnerBox.Text;
-            if (password == "0000")
-            {
-                MessageBox.Show("correct!!!");
-            }
+            //string password = OwnerBox.Text;
+            //if (password == "0000")
+            //{
+            //    MessageBox.Show("correct!!!");
+            //}
+            Owner_window ow = new Owner_window();
+            ow.ShowDialog();
         }
         private void HostingUnitOwnerButton_Click(object sender, RoutedEventArgs e)
         {

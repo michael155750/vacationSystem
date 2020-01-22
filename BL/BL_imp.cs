@@ -652,7 +652,18 @@ namespace BL
 
         #endregion
 
-        #region owner
+        #region Host
+
+        public IEnumerable<Host> GetAllHosts()
+        {
+            var a = from item in GetAllUnits()
+                    let host = item.Owner
+                    select host;
+               
+            a.Distinct();
+            return a;
+        }
+
         public float CalculateCommition()
         {
             var a = from item in GetAllUnits()
@@ -671,6 +682,8 @@ namespace BL
             }
             return sum;
         }
+
+        
         #endregion
 
 

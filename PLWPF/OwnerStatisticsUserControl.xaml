@@ -7,6 +7,27 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <StackPanel Name="leftStackPannel" Grid.Column="0" >
             
+            <TextBlock Name="numOfHostsTextBlock" TextAlignment="Center"/>
+            <TextBlock Name="numOfUnitsTextBlock" TextAlignment="Center"/>
+            <TextBlock Name="numOfReqTextBlock" TextAlignment="Center"/>
+            <TextBlock Name="numOfordersTextBlock" TextAlignment="Center"/>
+            <TextBlock Name="totalcommTextBlock" TextAlignment="Center"/>
+        </StackPanel>
+        <StackPanel Name="rightStackPannel" Grid.Column="1">
+            <TextBlock Text="A list of all hosts:"/>
+            <ComboBox Name="HostsComboBox" ItemsSource="{Binding}"/>
+            <TextBlock Text="A list of all hosting units:"/>
+            <ComboBox Name="UnitsComboBox" ItemsSource="{Binding}"/>
+            <TextBlock Text="A list of all guest request:"/>
+            <ComboBox Name="reqComboBox" ItemsSource="{Binding}"/>
+            <TextBlock Text="A list of all orders:"/>
+            <ComboBox Name="OrdersComboBox" ItemsSource="{Binding}"/>
+        </StackPanel>
     </Grid>
 </UserControl>

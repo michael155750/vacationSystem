@@ -227,6 +227,11 @@ namespace BL
         /// </summary>
         /// <returns></returns>
         float CalculateCommition();
+        /// <summary>
+        /// Return a collection of all hosts
+        /// </summary>
+        /// <returns></returns>
+        IEnumerable<Host> GetAllHosts();
 
 
     }
