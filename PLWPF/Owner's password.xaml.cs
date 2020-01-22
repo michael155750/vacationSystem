@@ -20,9 +20,24 @@ namespace PLWPF
     /// </summary>
     public partial class Owner_s_password : UserControl
     {
-        public Owner_s_password()
+        Owner_window father;
+        public Owner_s_password(Owner_window fa)
         {
             InitializeComponent();
+            father = fa;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (passwordTextBox.Text == "0000")
+            {
+                father.Change_user_control();
+            }
+            else
+            {
+                wrong_password.Visibility = Visibility.Visible;
+
+            }
         }
     }
 }

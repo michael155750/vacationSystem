@@ -185,7 +185,7 @@ namespace BL
         /// <param name="choice"></param>
         /// <param name="booly"></param>
         /// <returns></returns>
-        //bool ChoiceCompare(Choice choice, bool booly);
+        bool ChoiceCompare(Choice choice, bool booly);
 
         /// <summary>
         /// Returns all the guest request in the data source
@@ -222,5 +222,7 @@ namespace BL
         /// <param name="branchNum">branch number<branch number/param>
         /// <returns>new BankBranch</returns>
         BankBranch FindBranch(int bankNum, int branchNum);
+
+
     }
 }

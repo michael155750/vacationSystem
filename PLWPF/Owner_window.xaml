@@ -10,9 +10,10 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="4*"/>
+            <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
         <TextBlock HorizontalAlignment="Left" Height="409" TextWrapping="Wrap" FontSize="50" Text="Owner's statistics" VerticalAlignment="Top" Width="790" Grid.RowSpan="2"/>
-        <StackPanel Grid.Row="1">
+        <StackPanel x:Name="userControlStackPanel"  Grid.Row="1">
 </StackPanel>
 
 

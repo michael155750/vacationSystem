@@ -67,6 +67,9 @@
     <Compile Include="Owner%27s password.xaml.cs">
       <DependentUpon>Owner%27s password.xaml</DependentUpon>
     </Compile>
+    <Compile Include="OwnerStatisticsUserControl.xaml.cs">
+      <DependentUpon>OwnerStatisticsUserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Owner_window.xaml.cs">
       <DependentUpon>Owner_window.xaml</DependentUpon>
     </Compile>
@@ -119,6 +122,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Owner%27s password.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OwnerStatisticsUserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

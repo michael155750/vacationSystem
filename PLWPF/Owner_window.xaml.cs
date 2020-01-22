@@ -19,9 +19,24 @@ namespace PLWPF
     /// </summary>
     public partial class Owner_window : Window
     {
+        Owner_s_password os;
         public Owner_window()
         {
             InitializeComponent();
+            os = new Owner_s_password(this);
+            userControlStackPanel.Children.Add(os);
+        }
+
+        public void Change_user_control()
+        {
+            userControlStackPanel.Children.Remove(os);
+            OwnerStatisticsUserControl ost = new OwnerStatisticsUserControl();
+            userControlStackPanel.Children.Add(ost);
+            
         }
     }
+
+    
+
+
 }

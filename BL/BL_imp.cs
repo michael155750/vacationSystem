@@ -159,7 +159,7 @@ namespace BL
             hostingUnit.Owner.BankBranchDetails.MyCommition = 0;
 
             if (hostingUnit.Owner.FhoneNumber < 20000000 || hostingUnit.Owner.FhoneNumber > 9999999999)
-                throw new ArgumentOutOfRangeException("Please insert correct fhone number");
+                throw new ArgumentOutOfRangeException("Please insert correct Phone number");
 
             if (hostingUnit.Owner.BankBranchDetails.CollectionClearance < 0 || hostingUnit.Owner.BankBranchDetails.CollectionClearance > (YesNo)1)
                 throw new InvalidEnumArgumentException("Please insert correct choice");
@@ -446,6 +446,34 @@ namespace BL
             return dal.GetAllOrders();
         }
 
+        public List<HostingUnit> MachUnitToRequest(GuestRequest gue)
+        {
+            var a = from item in dal.GetAllUnits()
+                    let beds = gue.Children + gue.Adults
+                    where item.Area == gue.Area
+                       && item.SubArea == gue.SubArea
+                       && item.Beds >= beds
+                       && ChoiceCompare(gue.Garden, item.Garden)
+                       && ChoiceCompare(gue.Pool, item.Pool)
+                       && ChoiceCompare(gue.Jacuzzi, item.Jacuzzi)
+                       && ChoiceCompare(gue.ChildrensAttractions, item.ChildrensAttractions)
+                    select item;
+
+
+            return (List<HostingUnit>)a;
+
+        }
+
+        public bool ChoiceCompare(Choice choice, bool booly)
+        {
+            if (booly)
+                return true;
+            else if (choice == Choice.Possible || choice == Choice.Unnecessary)
+                return true;
+            else return false;
+        }
+
+
         #endregion
 
         #region Bank
@@ -624,33 +652,13 @@ namespace BL
 
         #endregion
 
-        //diferent region?
-       public List<HostingUnit> MachUnitToRequest(GuestRequest gue)
+        #region owner
+        public float CalculateCommition()
         {
-            var a = from item in dal.GetAllUnits()
-                    let beds = gue.Children + gue.Adults
-                    where item.Area == gue.Area
-                       && item.SubArea == gue.SubArea
-                       && item.Beds >= beds
-                       && ChoiceCompare(gue.Garden, item.Garden)
-                       && ChoiceCompare(gue.Pool, item.Pool)
-                       && ChoiceCompare(gue.Jacuzzi, item.Jacuzzi)
-                       && ChoiceCompare(gue.ChildrensAttractions, item.ChildrensAttractions)
-                    select item;
-
-
-            return (List<HostingUnit>)a;
-
+            return from item in GetAllUnits()
+                   select new {}
         }
-
-        bool ChoiceCompare(Choice choice, bool booly)
-        {
-            if (booly)
-                return true;
-            else if (choice == Choice.Possible || choice == Choice.Unnecessary)
-                return true;
-            else return false;
-        }
+        #endregion
 
 
     }
