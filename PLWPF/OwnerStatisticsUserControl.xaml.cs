@@ -46,7 +46,7 @@ namespace PLWPF
             numOfHostsTextBlock.Text = "The number of hosts is:" + bl.GetAllHosts().ToList().Count();
             numOfUnitsTextBlock.Text = "The number of hosting units is:" + bl.GetAllUnits().ToList().Count();
             numOfordersTextBlock.Text = "The number of orders is:" + bl.GetAllOrders().ToList().Count();
-            totalcommTextBlock.Text = "The total commition is: " + bl.CalculateCommition();
+            totalcommTextBlock.Text = "The total commition is: " + bl.CalculateCommition().ToString();
             numOfReqTextBlock.Text = "The number of guest requests is:" + bl.GetAllRequests().ToList().Count();
         }
     }

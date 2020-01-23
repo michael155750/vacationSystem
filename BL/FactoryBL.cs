@@ -209,5 +209,15 @@ namespace BL
         {
             throw new NotImplementedException();
         }
+
+        public float CalculateCommition()
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<Host> GetAllHosts()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

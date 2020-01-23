@@ -669,18 +669,19 @@ namespace BL
             var a = from item in GetAllUnits()
                     select new { key=item.Owner.HostKey,
                         comm=item.Owner.BankBranchDetails.MyCommition };
-           var b =  a.ToList();
-            float sum = 0;
-            foreach (var item in b)
-            {
-                foreach (var item2 in b)
-                {
-                    if (item.key == item2.key)
-                        b.Remove(item2);
-                }
-                sum += item.comm;
-            }
-            return sum;
+            a.Distinct();
+            return (float) a.Sum(x=>x.comm);
+            //float sum = 0;
+            //foreach (var item in a)
+            //{
+            //    foreach (var item2 in a)
+            //    {
+            //        if (item.key == item2.key)
+            //            a.Remove(item2);
+            //    }
+            //    sum += item.comm;
+            //}
+            
         }
 
         

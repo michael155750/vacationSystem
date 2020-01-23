@@ -19,8 +19,8 @@
         </Grid.RowDefinitions>
         <StackPanel Grid.Row="1" Grid.Column="0">
             <TextBlock Text="Owner"/>
-            <TextBox x:Name="OwnerBox"/>
-            <Button x:Name="OwnerButton" Content="accept" Click="OwnerButton_Click"/>
+           
+            <Button x:Name="OwnerButton" Content="login" Click="OwnerButton_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <TextBlock Text="Hosting Unit"/>

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace BE
 {
@@ -13,7 +14,12 @@ namespace BE
         public string HostingUnitName { get; set; }
         public Areas Area { get; set; }
         public String SubArea { get; set; }
+        [XmlIgnore]
         public bool[,] Diary { get; set; }
+        ////[XmlArray("Diary")]        ////public bool[] DiaryToXML
+        ////{
+        ////    get { return Diary.Flatten(); }
+        ////}
         public uint Beds { get; set; }
         
 
