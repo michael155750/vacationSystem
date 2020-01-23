@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<configurations>
+  <config>
+    <key>globalGuestRequestKey</key>
+    <value>10000003</value>
+  </config>
+  <config>
+    <key>globalHostingUnitKey</key>
+    <value>10000003</value>
+  </config>
+  <config>
+    <key>globalOrderKey</key>
+    <value>10000000</value>
+  </config>
+  <config>
+    <key>globalHostKey</key>
+    <value>10000003</value>
+    <config>
+      <key>Commition</key>
+      <value>10</value>
+    </config>
+    <config>
+      <key>ownersPassword</key>
+      <value>0000</value>
+    </config>
+  </config>
+</configurations>

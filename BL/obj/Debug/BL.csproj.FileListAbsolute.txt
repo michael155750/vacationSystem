@@ -1,0 +1,13 @@
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BL\obj\Debug\BL.csprojAssemblyReference.cache
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BL\obj\Debug\BL.csproj.CoreCompileInputs.cache
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BL\bin\Debug\BL.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BL\bin\Debug\BL.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BL\bin\Debug\BE.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BL\bin\Debug\DAL.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BL\bin\Debug\DS.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BL\bin\Debug\BE.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BL\bin\Debug\DAL.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BL\bin\Debug\DS.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BL\obj\Debug\BL.csproj.CopyComplete
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BL\obj\Debug\BL.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BL\obj\Debug\BL.pdb

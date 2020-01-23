@@ -1,0 +1,16 @@
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\obj\Debug\PL.csproj.CoreCompileInputs.cache
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\bin\Debug\PL.exe.config
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\bin\Debug\PL.exe
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\bin\Debug\PL.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\bin\Debug\BE.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\bin\Debug\BL.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\bin\Debug\DAL.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\bin\Debug\DS.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\bin\Debug\BE.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\bin\Debug\BL.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\bin\Debug\DAL.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\bin\Debug\DS.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\obj\Debug\PL.csprojAssemblyReference.cache
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\obj\Debug\PL.csproj.CopyComplete
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\obj\Debug\PL.exe
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PL\obj\Debug\PL.pdb

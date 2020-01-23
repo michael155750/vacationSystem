@@ -1,0 +1,12 @@
+C:\Users\haya011\Source\Repos\ProjectIn.Net\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\haya011\Source\Repos\ProjectIn.Net\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\haya011\Source\Repos\ProjectIn.Net\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\ConsoleApp1\bin\Debug\BE.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\ConsoleApp1\bin\Debug\DS.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\ConsoleApp1\bin\Debug\BE.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\ConsoleApp1\bin\Debug\DS.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\ConsoleApp1\obj\Debug\XMLApp.csprojAssemblyReference.cache
+C:\Users\haya011\Source\Repos\ProjectIn.Net\ConsoleApp1\obj\Debug\XMLApp.csproj.CoreCompileInputs.cache
+C:\Users\haya011\Source\Repos\ProjectIn.Net\ConsoleApp1\obj\Debug\XMLApp.csproj.CopyComplete
+C:\Users\haya011\Source\Repos\ProjectIn.Net\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\haya011\Source\Repos\ProjectIn.Net\ConsoleApp1\obj\Debug\ConsoleApp1.pdb

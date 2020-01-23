@@ -16,10 +16,11 @@ namespace BE
         public String SubArea { get; set; }
         [XmlIgnore]
         public bool[,] Diary { get; set; }
-        ////[XmlArray("Diary")]        ////public bool[] DiaryToXML
-        ////{
-        ////    get { return Diary.Flatten(); }
-        ////}
+        [XmlArray("Diary")]        public bool[] DiaryToXML
+        {
+            get { return Diary.Flatten(); }
+            set { Diary = value.Expand(5); }
+        }
         public uint Beds { get; set; }
         
 

@@ -1,0 +1,11 @@
+C:\Users\haya011\Source\Repos\ProjectIn.Net\DAL\bin\Debug\DAL.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\DAL\bin\Debug\DAL.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\DAL\bin\Debug\BE.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\DAL\bin\Debug\DS.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\DAL\bin\Debug\BE.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\DAL\bin\Debug\DS.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\DAL\obj\Debug\DAL.csprojAssemblyReference.cache
+C:\Users\haya011\Source\Repos\ProjectIn.Net\DAL\obj\Debug\DAL.csproj.CoreCompileInputs.cache
+C:\Users\haya011\Source\Repos\ProjectIn.Net\DAL\obj\Debug\DAL.csproj.CopyComplete
+C:\Users\haya011\Source\Repos\ProjectIn.Net\DAL\obj\Debug\DAL.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\DAL\obj\Debug\DAL.pdb

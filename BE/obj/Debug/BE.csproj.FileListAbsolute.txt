@@ -1,0 +1,6 @@
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BE\bin\Debug\BE.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BE\bin\Debug\BE.pdb
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BE\obj\Debug\BE.csprojAssemblyReference.cache
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BE\obj\Debug\BE.csproj.CoreCompileInputs.cache
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BE\obj\Debug\BE.dll
+C:\Users\haya011\Source\Repos\ProjectIn.Net\BE\obj\Debug\BE.pdb
