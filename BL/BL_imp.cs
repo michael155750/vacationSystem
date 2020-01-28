@@ -59,6 +59,10 @@ namespace BL
             {
                 throw exc;
             }
+            catch(Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void UpdateRequest(long guestRequestKey, GuestRequestStatus newStatus)
@@ -74,6 +78,10 @@ namespace BL
             catch (KeyNotFoundException exc)
             {
                 throw exc;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 
@@ -145,6 +153,10 @@ namespace BL
             {
                 throw exc;
             }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void AddUnitAndHost(HostingUnit hostingUnit, Host host)
@@ -172,7 +184,10 @@ namespace BL
             {
                 throw exc;
             }
-
+            catch (Exception ex)
+            {
+                throw ex;
+            }
         }
 
         public void DeleteUnit(long hostingUnitKey)
@@ -196,6 +211,7 @@ namespace BL
                     throw exc;
                 if (exc is ArgumentNullException)
                     throw new ArgumentNullException("The key exists, /n Unable to find content by key");
+                else throw exc;
             }
         }
 
@@ -215,6 +231,7 @@ namespace BL
                     throw new ArgumentException("The key exists, /n Unable to remone oldest content by key");
                 if (exc is ArgumentOutOfRangeException)
                     throw new ArgumentOutOfRangeException("The key exists, / n the index is out of range");
+                else throw exc;
             }
         }
 
@@ -236,6 +253,7 @@ namespace BL
                     throw new ArgumentException("The key exists, /n Unable to remone oldest content by key");
                 if (exc is ArgumentOutOfRangeException)
                     throw new ArgumentOutOfRangeException("The key exists, / n the index is out of range");
+                else throw exc;
             }
         }
 
@@ -269,6 +287,7 @@ namespace BL
                     throw new ArgumentException("The key exists, /n Unable to remone oldest content by key");
                 if (exc is ArgumentOutOfRangeException)
                     throw new ArgumentOutOfRangeException("The key exists, / n the index is out of range");
+                else throw exc;
             }
         }
 
@@ -367,9 +386,10 @@ namespace BL
                     throw new ArgumentNullException("Unable to copy content to array or list");
                 if (exc is ArgumentException)
                     throw new ArgumentException("Unable to copy content to array or list");
+                else throw exc;
             }
 
-            for (DateTime i = entryDate; i < releaseDate; i.AddDays(1))
+            for (DateTime i = entryDate; i < releaseDate; i = i.AddDays(1))
             {
                 if (diary[i.Month - 1, i.Day - 1] == true)
                     throw new DataException("the dates immpossible");
@@ -381,6 +401,10 @@ namespace BL
             catch (DuplicateWaitObjectException exc)
             {
                 throw exc;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
             }
         }
 

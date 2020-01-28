@@ -23,6 +23,7 @@ namespace BE
             }
             return arrFlattened;
         }
+
         public static T[,] Expand<T>(this T[] arr, int rows)
         {
             int length = arr.GetLength(0);

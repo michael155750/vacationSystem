@@ -9,10 +9,13 @@ namespace DAL
 {
     public sealed class FactoryDal : Idal
     {
-        
+        private string DalType = "xml";
+
         public Idal GetDal()
         {
-            return  Dal_imp.Instance;
+            if (DalType == "xml") return Dal_XML_imp.Instance;
+
+            else return Dal_imp.Instance;
         }
 
         public void AddOrder(Order order)

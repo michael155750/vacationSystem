@@ -19,7 +19,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XMLApp", "ConsoleApp1\XMLAp
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A441157A-A03E-4715-923C-8E967069470B}"
 	ProjectSection(SolutionItems) = preProject
+		XML_banks.xml = XML_banks.xml
 		XML_config.xml = XML_config.xml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "xmlFiles", "xmlFiles", "{04D0BCF9-BC64-4A2E-83CB-F8DDBD1121C4}"
+	ProjectSection(SolutionItems) = preProject
+		XML_files\XML_Banks.xml = XML_files\XML_Banks.xml
+		XML_BanksFromWeb.xml = XML_BanksFromWeb.xml
+		XML_files\XML_config.xml = XML_files\XML_config.xml
+		XML_files\XML_Order.xml = XML_files\XML_Order.xml
+		XML_files\XML_Req.xml = XML_files\XML_Req.xml
+		XML_files\XML_Unit.xml = XML_files\XML_Unit.xml
 	EndProjectSection
 EndProject
 Global
@@ -59,6 +70,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{04D0BCF9-BC64-4A2E-83CB-F8DDBD1121C4} = {A441157A-A03E-4715-923C-8E967069470B}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {E6FC3260-C5AD-441A-ADE0-821F314573BF}

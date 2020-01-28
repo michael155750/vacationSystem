@@ -202,9 +202,10 @@ namespace PL
                         Console.WriteLine("insert owner's mail address");
                         host.MailAddress = Console.ReadLine();
 
-                        Console.WriteLine("insert owner's fhone number");
+                        Console.WriteLine("insert owner's phone number");
                         host.FhoneNumber = Convert.ToInt64(Console.ReadLine());
 
+                        host.BankBranchDetails = new BankBranch();
                         Console.WriteLine("insert owner's bank account number");
                         host.BankBranchDetails.BankAccountNumber = Convert.ToInt64(Console.ReadLine());
 

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using System.IO;
 using System.Xml.Serialization;
+using System.Net.Mail;using System.Net;
+using System.Xml;
+using System.Threading;
 
 namespace DAL
 {
@@ -30,20 +33,25 @@ namespace DAL
             }
         }
 
-        //private XElement RequestRoot;
+       
         
         private XElement OrderRoot;
         private XElement ConfigRoot;
+        private XElement BanksRoot;
        
 
         private const string RequestRootPath = @"..\..\..\XML_files\XML_Req.xml";
         private const string UnitRootPath = @"..\..\..\XML_files\XML_Unit.xml";
         private const string OrderRootPath = @"..\..\..\XML_files\XML_Order.xml";
         private const string ConfigRootPath = @"..\..\..\XML_files\XML_Config.xml";
-       
+        private const string BanksRootPath = @"..\..\..\XML_files\XML_Banks.xml";
+        private const string BanksWebRootPath = @"..\..\..\ProjectIn.Net\XML_BanksFromWeb.xml";
 
         private Dal_XML_imp()
         {
+            Thread t1 = new Thread(downloadBanks);
+            t1.Start();
+
             if (!File.Exists(RequestRootPath))
             {
                
@@ -89,19 +97,81 @@ namespace DAL
 
         public static void SaveListToXML<T>(List<T> list, string path)
         {
-            XmlSerializer x = new XmlSerializer(list.GetType());
-            FileStream fs = new FileStream(path, FileMode.Create);
-            x.Serialize(fs, list);
+            try
+            {
+                XmlSerializer x = new XmlSerializer(list.GetType());
+                FileStream fs = new FileStream(path, FileMode.Create);
+                x.Serialize(fs, list);
+                fs.Close();
+            }
+            catch (Exception ex)
+            {
+                throw new XmlException("problem with xml files", ex);
+            }
         }
 
         public static List<T> LoadListFromXML<T>(string path)
         {
-            List<T> list;
-            XmlSerializer x = new XmlSerializer(typeof(List<T>));
-            FileStream fs = new FileStream(path, FileMode.Open);
-            list = (List<T>)x.Deserialize(fs);
-            return list;
+            try
+            {
+                List<T> list;
+                XmlSerializer x = new XmlSerializer(typeof(List<T>));
+                FileStream fs = new FileStream(path, FileMode.Open);
+                list = (List<T>)x.Deserialize(fs);
+                fs.Close();
+                return list;
+            }
+            catch (Exception ex)
+            {
+                throw new XmlException("problem with xml files", ex);
+            }
+            
         }
+
+        private void downloadBanks()
+        {
+            WebClient wc = new WebClient();
+            try
+            {
+                string BanksServerPath =
+                    @"http://www.boi.org.il/he/BankingSupervision/BanksAndBranchLocations/Lists/BoiBankBranchesDocs/atm.xml";
+
+                wc.DownloadFile(BanksServerPath, BanksRootPath);
+            }
+            catch (Exception)
+            {
+                string BanksServerPath = @"http://www.jct.ac.il/~coshri/atm.xml";
+                wc.DownloadFile(BanksServerPath, BanksWebRootPath);
+            }
+            finally
+            {
+                wc.Dispose();
+            }
+
+            XElement bankWebRoot;
+            try
+            {
+                bankWebRoot = XElement.Load(BanksWebRootPath);
+
+            }
+            catch
+            {
+                throw new DirectoryNotFoundException("Problem with loading the file");
+            }
+
+            XElement bankRoot;
+            try
+            {
+                bankRoot = XElement.Load(BanksRootPath);
+
+            }
+            catch
+            {
+                throw new DirectoryNotFoundException("Problem with loading the file");
+            }
+
+        }
+
             #region Guest request
 
             public void AddRequest(GuestRequest guestRequest)
@@ -109,6 +179,7 @@ namespace DAL
             guestRequest.GuestRequestKey = long.Parse( ConfigRoot.Element("globalGuestRequestKey").Value);
             guestRequest.GuestRequestKey++;
             ConfigRoot.Element("globalGuestRequestKey").Value = guestRequest.GuestRequestKey.ToString();
+            ConfigRoot.Save(ConfigRootPath);
 
             List<GuestRequest> guestRequestsList = LoadListFromXML<GuestRequest>(RequestRootPath);
             foreach (var item in guestRequestsList)
@@ -118,6 +189,7 @@ namespace DAL
             }
 
             guestRequest.Status = GuestRequestStatus.Active;
+            guestRequestsList.Add(guestRequest);
             SaveListToXML<GuestRequest>(guestRequestsList, RequestRootPath);
         }
 
@@ -163,6 +235,7 @@ namespace DAL
             hostingUnit.HostingUnitKey = long.Parse(ConfigRoot.Element("globalHostingUnitKey").Value);
             hostingUnit.HostingUnitKey++;
             ConfigRoot.Element("globalHostingUnitKey").Value = hostingUnit.HostingUnitKey.ToString();
+            ConfigRoot.Save(ConfigRootPath);
 
             var hostingUnitsList = LoadListFromXML<HostingUnit>(UnitRootPath);
             foreach (var item in hostingUnitsList)
@@ -181,6 +254,7 @@ namespace DAL
             hostingUnit.HostingUnitKey = long.Parse(ConfigRoot.Element("globalHostingUnitKey").Value);
             hostingUnit.HostingUnitKey++;
             ConfigRoot.Element("globalHostingUnitKey").Value = hostingUnit.HostingUnitKey.ToString();
+            ConfigRoot.Save(ConfigRootPath);
 
             //Checks whether the hosting unit key exists in the system
             var hostingUnitsList = LoadListFromXML<HostingUnit>(UnitRootPath);
@@ -193,6 +267,7 @@ namespace DAL
             host.HostKey = long.Parse(ConfigRoot.Element("globalHostKey").Value);
             host.HostKey++;
             ConfigRoot.Element("globalHostKey").Value = host.HostKey.ToString();
+            ConfigRoot.Save(ConfigRootPath);
 
             var hostList = from item in hostingUnitsList
                            select new { item.Owner.HostKey };
@@ -242,7 +317,8 @@ namespace DAL
             if (!flag)
                 throw new KeyNotFoundException("The item key does not exist");
 
-            int key = hostingUnitsList.FindIndex(x => x.HostingUnitKey == hostingUnit.HostingUnitKey);
+            int key = hostingUnitsList.FindIndex
+                (x => x.HostingUnitKey == hostingUnit.HostingUnitKey);
 
             hostingUnitsList.RemoveRange(key, 0);
             hostingUnitsList.Insert(key, hostingUnit);
@@ -289,17 +365,26 @@ namespace DAL
             order.OrderKey = long.Parse(ConfigRoot.Element("globalOrderKey").Value);
             order.OrderKey++;
             ConfigRoot.Element("globalOrderKey").Value = order.OrderKey.ToString();
+            ConfigRoot.Save(ConfigRootPath);
 
-            var ordersList = from item in OrderRoot.Elements()
+            var ordersList = (from item in OrderRoot.Elements()
                              where item.Element("OrderKey").Value == order.OrderKey.ToString()
-                             select item;
+                             select item).FirstOrDefault();
 
             
                 if (ordersList != null)
                     throw new DuplicateWaitObjectException("The order key already exist");
-            
 
-            OrderRoot.Add(order);
+            XElement CreateDate = new XElement("CreateDate", order.CreateDate);
+            XElement GuestRequestKey = new XElement("GuestRequestKey", order.GuestRequestKey);
+            XElement HostingUnitKey = new XElement("HostingUnitKey", order.HostingUnitKey);
+            XElement OrderDate = new XElement("OrderDate", order.OrderDate);
+            XElement OrderKey = new XElement("OrderKey", order.OrderKey);
+            XElement Status = new XElement("Status", order.Status);
+
+            OrderRoot.Add(new XElement("order", CreateDate, GuestRequestKey, HostingUnitKey,
+                OrderDate, OrderKey, Status));
+            OrderRoot.Save(OrderRootPath);
         }
 
         public void UpdateOrder(Order order)
@@ -312,7 +397,16 @@ namespace DAL
                 throw new KeyNotFoundException("The item key does not exist");
 
             oldOrder.Remove();
-            OrderRoot.Add(order);
+
+            XElement CreateDate = new XElement("CreateDate", order.CreateDate);
+            XElement GuestRequestKey = new XElement("GuestRequestKey", order.GuestRequestKey);
+            XElement HostingUnitKey = new XElement("HostingUnitKey", order.HostingUnitKey);
+            XElement OrderDate = new XElement("OrderDate", order.OrderDate);
+            XElement OrderKey = new XElement("OrderKey", order.OrderKey);
+            XElement Status = new XElement("Status", order.Status);
+
+            OrderRoot.Add(new XElement("order", CreateDate, GuestRequestKey, HostingUnitKey,
+                OrderDate, OrderKey, Status));
             OrderRoot.Save(OrderRootPath);
             
         }
@@ -390,3 +484,61 @@ namespace DAL
 
 
 }
+/*<GuestRequest>
+    <GuestRequestKey>10000000</GuestRequestKey>
+    <FirstName>Meir</FirstName>
+    <LastName>Ochaun</LastName>
+    <MailAddress>Meir@gmail.com</MailAddress>
+    <Status>Active</Status>
+    <RegistrationDate>2019-06-10T00:00:00</RegistrationDate>
+    <EntryDate>2019-07-10T00:00:00</EntryDate>
+    <ReleaseDate>2019-07-15T00:00:00</ReleaseDate>
+    <Area>Center</Area>
+    <SubArea>Jerusalem</SubArea>
+    <Type>Zimmer</Type>
+    <Adults>2</Adults>
+    <Children>1</Children>
+    <Pool>Unnecessary</Pool>
+    <Jacuzzi>Necessary</Jacuzzi>
+    <Garden>Possible</Garden>
+    <ChildrensAttractions>Necessary</ChildrensAttractions>
+  </GuestRequest>
+  <GuestRequest>
+    <GuestRequestKey>10000001</GuestRequestKey>
+    <FirstName>Ori</FirstName>
+    <LastName>Len</LastName>
+    <MailAddress>ori@gmail.com</MailAddress>
+    <Status>Active</Status>
+    <RegistrationDate>2019-01-10T00:00:00</RegistrationDate>
+    <EntryDate>2019-03-10T00:00:00</EntryDate>
+    <ReleaseDate>2019-03-15T00:00:00</ReleaseDate>
+    <Area>North</Area>
+    <SubArea>Haifa</SubArea>
+    <Type>Zimmer</Type>
+    <Adults>2</Adults>
+    <Children>3</Children>
+    <Pool>Unnecessary</Pool>
+    <Jacuzzi>Necessary</Jacuzzi>
+    <Garden>Possible</Garden>
+    <ChildrensAttractions>Necessary</ChildrensAttractions>
+  </GuestRequest>
+  <GuestRequest>
+    <GuestRequestKey>10000002</GuestRequestKey>
+    <FirstName>Shalom</FirstName>
+    <LastName>Yadid</LastName>
+    <MailAddress>Shalom@gmail.com</MailAddress>
+    <Status>Active</Status>
+    <RegistrationDate>2019-05-10T00:00:00</RegistrationDate>
+    <EntryDate>2019-06-10T00:00:00</EntryDate>
+    <ReleaseDate>2019-06-15T00:00:00</ReleaseDate>
+    <Area>Jerusalem</Area>
+    <SubArea>Jerusalem</SubArea>
+    <Type>Camping</Type>
+    <Adults>4</Adults>
+    <Children>5</Children>
+    <Pool>Unnecessary</Pool>
+    <Jacuzzi>Necessary</Jacuzzi>
+    <Garden>Necessary</Garden>
+    <ChildrensAttractions>Possible</ChildrensAttractions>
+  </GuestRequest> 
+  */

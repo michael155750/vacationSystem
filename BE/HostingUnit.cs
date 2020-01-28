@@ -19,7 +19,7 @@ namespace BE
         [XmlArray("Diary")]        public bool[] DiaryToXML
         {
             get { return Diary.Flatten(); }
-            set { Diary = value.Expand(5); }
+            set { Diary = value.Expand(12); }
         }
         public uint Beds { get; set; }
         
