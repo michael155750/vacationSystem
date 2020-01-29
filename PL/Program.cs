@@ -223,7 +223,7 @@ namespace PL
                         int branchNumber = Convert.ToInt32(Console.ReadLine());
                         try
                         {
-                            host.BankBranchDetails = bl.FindBranch(bankNumber, branchNumber);
+                           // host.BankBranchDetails = bl.FindBranch(bankNumber, branchNumber);
 
                             bl.AddUnitAndHost(unit, host);
                         }

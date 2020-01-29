@@ -33,10 +33,10 @@ namespace PLWPF
             this.Type_ComboBox.ItemsSource = Enum.GetValues(typeof(BE.Types));
 
             this.ArrivalDate.DisplayDateStart = DateTime.Now;
-            this.ArrivalDate.DisplayDateEnd = DateTime.Parse("12.31.2020");
+            this.ArrivalDate.DisplayDateEnd = new DateTime(2020, 12, 31); 
             this.ArrivalDate.SelectedDate = DateTime.Now;
             this.LeavingDate.DisplayDateStart = DateTime.Now.AddDays(1);
-            this.LeavingDate.DisplayDateEnd = DateTime.Parse("12.31.2020");
+            this.LeavingDate.DisplayDateEnd = new DateTime(2020, 12, 31);
             this.LeavingDate.SelectedDate = DateTime.Now.AddDays(1);
             MainGrid.DataContext = guestRequest;
 

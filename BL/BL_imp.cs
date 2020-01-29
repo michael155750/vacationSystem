@@ -5,7 +5,8 @@ using System.ComponentModel;
 using System.Data;
 using DAL;
 using BE;
-using System.Net.Mail;
+using System.Net.Mail;
+
 
 
 namespace BL
@@ -506,12 +507,12 @@ namespace BL
 
         #region Bank
 
-        public IEnumerable<Bankdetails> GetAllBanks()
+        public IEnumerable<Bank> GetAllBanks()
         {
             return dal.GetAllBanks();
         }
 
-        public Bankdetails FindBranch(int bankNum, int branchNum)
+        public Bank FindBranch(int bankNum, int branchNum)
         {
             if (!dal.GetAllBanks().Any(
                 x => x.BankNumber == bankNum))
@@ -537,29 +538,20 @@ namespace BL
 
         public IEnumerable<IGrouping<Areas, GuestRequest>> ReqGroupByArea()
         {
-            //var result = from item in dal.GetAllRequests()
-            //             group item by item.Area into grou
-            //             select new { area = grou.Key, req = grou };
-            //List<GuestRequest> lst = new List<GuestRequest>();
-            //foreach (var grou in result)
-            //    foreach (var item in grou.req)
-            //    {
-            //        lst.Add(item);
-            //    }
-            //return lst;
-            var result = from item in dal.GetAllRequests()
+            
+            var result = (from item in dal.GetAllRequests()
                          group item by item.Area into grou                         
-                         select grou;
+                         select grou).ToList();
             return result;
 
         }
 
         public IEnumerable<IGrouping<int, GuestRequest>> ReqGroupByGuestNum()
         {
-            var result = from item in dal.GetAllRequests()
+            var result = (from item in dal.GetAllRequests()
                          let GuestNum = item.Children + item.Adults
                          group item by GuestNum into grou
-                         select grou;
+                         select grou).ToList();
 
 
             return result;
@@ -567,10 +559,10 @@ namespace BL
 
         public IEnumerable<IGrouping<long, HostingUnit>> HostsGroupByUnits()
         {
-            var result = from item in dal.GetAllUnits()
+            var result = (from item in dal.GetAllUnits()
                          group item by item.Owner.HostKey into grou
                          orderby grou.Count()
-                         select grou;
+                         select grou).ToList();
             return result;
 
 
@@ -578,17 +570,17 @@ namespace BL
 
         public IEnumerable<IGrouping<Areas, HostingUnit>> UnitsGroupByArea()
         {
-            var result = from item in dal.GetAllUnits()
+            var result = (from item in dal.GetAllUnits()
                          group item by item.Area into grou
-                         select grou;
+                         select grou).ToList();
             return result;
         }
 
         public IEnumerable<IGrouping<long, Order>> OrdersGroupByUnit()
         {
-            var result = from item in dal.GetAllOrders()
+            var result = (from item in dal.GetAllOrders()
                          group item by item.HostingUnitKey into grou
-                         select grou;
+                         select grou).ToList();
             return result;
         }
 
@@ -627,14 +619,7 @@ namespace BL
 
         public GuestRequest FindReqByKey(long key)
         {
-            //GuestRequest certianRequest = new GuestRequest();
-            //foreach (var item in dal.GetAllRequests())
-            //{
-            //    if (item.GuestRequestKey == key)
-            //        certianRequest = item;
-
-            //}
-            //return certianRequest;
+            
             if (!dal.GetAllRequests().Any(x => x.GuestRequestKey == key))
                 throw new KeyNotFoundException("The guest request key doesn't exist");
             return dal.GetAllRequests().First(x => x.GuestRequestKey == key);
@@ -642,14 +627,7 @@ namespace BL
 
         public HostingUnit FindUnitByKey(long key)
         {
-            //HostingUnit certianUnit = new HostingUnit();
-            //foreach (var item in dal.GetAllUnits())
-            //{
-            //    if (item.HostingUnitKey == key)
-            //        certianUnit = item;
-
-            //}
-            //return certianUnit;
+            
             if (!dal.GetAllUnits().Any(x => x.HostingUnitKey == key))
                 throw new KeyNotFoundException("The hosting unit key doesn't exist");
             return dal.GetAllUnits().First(x => x.HostingUnitKey == key);
@@ -657,14 +635,7 @@ namespace BL
 
         public Order FindOrderByKey(long key)
         {
-            //Order certianOrder = new Order();
-            //foreach (var item in dal.GetAllOrders())
-            //{
-            //    if (item.OrderKey == key)
-            //        certianOrder = item;
-
-            //}
-            //return certianOrder;
+            
             if (!dal.GetAllOrders().Any(x => x.OrderKey == key))
                 throw new KeyNotFoundException("The order key doesn't exist");
 
@@ -699,16 +670,7 @@ namespace BL
                         comm=item.Owner.BankBranchDetails.MyCommition };
             a.Distinct();
             return (float) a.Sum(x=>x.comm);
-            //float sum = 0;
-            //foreach (var item in a)
-            //{
-            //    foreach (var item2 in a)
-            //    {
-            //        if (item.key == item2.key)
-            //            a.Remove(item2);
-            //    }
-            //    sum += item.comm;
-            //}
+            
             
         }
 

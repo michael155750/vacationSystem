@@ -59,7 +59,7 @@ namespace BL
             throw new NotImplementedException();
         }
 
-        public Bankdetails FindBranch(int bankNum, int branchNum)
+        public Bank FindBranch(int bankNum, int branchNum)
         {
             throw new NotImplementedException();
         }
@@ -216,6 +216,11 @@ namespace BL
         }
 
         public IEnumerable<Host> GetAllHosts()
+        {
+            throw new NotImplementedException();
+        }
+
+        IEnumerable<Bank> Ibl.GetAllBanks()
         {
             throw new NotImplementedException();
         }

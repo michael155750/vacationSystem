@@ -19,15 +19,28 @@
             <TextBlock Name="numOfordersTextBlock" TextAlignment="Center"/>
             <TextBlock Name="totalcommTextBlock" TextAlignment="Center"/>
         </StackPanel>
-        <StackPanel Name="rightStackPannel" Grid.Column="1">
+        <StackPanel Name="rightStackPannel" Grid.Column="1" Margin="1,0,-1,0">
             <TextBlock Text="A list of all hosts:"/>
             <ComboBox Name="HostsComboBox" ItemsSource="{Binding}"/>
+            <TextBlock Text="A list of all hosts grouping by hosting units:"/>
+            <ComboBox Name="HostsGroupByUnitsComboBox" ItemsSource="{Binding}"/>
+           
             <TextBlock Text="A list of all hosting units:"/>
             <ComboBox Name="UnitsComboBox" ItemsSource="{Binding}"/>
+            <TextBlock Text="A list of all hosting units grouping by area:"/>
+            <ComboBox Name="UnitsGroupByAreaComboBox" ItemsSource="{Binding}"/>
+            
             <TextBlock Text="A list of all guest request:"/>
             <ComboBox Name="reqComboBox" ItemsSource="{Binding}"/>
+            <TextBlock Text="A list of all guest request grouping by area:"/>
+            <ComboBox Name="ReqGroupByAreaComboBox" ItemsSource="{Binding}"/>
+            <TextBlock Text="A list of all guest request grouping by guests number:"/>
+            <ComboBox Name="ReqGroupByGuestNumComboBox" ItemsSource="{Binding}"/>
+
             <TextBlock Text="A list of all orders:"/>
             <ComboBox Name="OrdersComboBox" ItemsSource="{Binding}"/>
+            <TextBlock Text="A list of all orders grouping by hosting units:"/>
+            <ComboBox Name="OrdersGroupByUnitComboBox" ItemsSource="{Binding}"/>
         </StackPanel>
     </Grid>
 </UserControl>

@@ -95,7 +95,7 @@ namespace BL
         /// exist in Israel
         /// </summary>
         /// <returns></returns>
-        IEnumerable<Bankdetails> GetAllBanks();
+        IEnumerable<Bank> GetAllBanks();
 
         /// <summary>
         /// Get a date and number of vication days and return all 
@@ -221,7 +221,7 @@ namespace BL
         /// <param name="bankNum">bank number</param>
         /// <param name="branchNum">branch number<branch number/param>
         /// <returns>new BankBranch</returns>
-        Bankdetails FindBranch(int bankNum, int branchNum);
+        Bank FindBranch(int bankNum, int branchNum);
         /// <summary>
         /// return the commition from all the hosts in the system
         /// </summary>
