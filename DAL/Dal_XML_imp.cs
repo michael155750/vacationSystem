@@ -168,16 +168,25 @@ namespace DAL
             //{
             //    throw new DirectoryNotFoundException("Problem with loading the file");
             //}
-            
+
             var ATMs = from ATM in bankWebRoot.Elements()
-                       select new
+                       let bank = new Bank()
                        {
-                           BankName = new XElement("BankName", ATM.Element("שם_בנק").Value),
-                           BankNumber = new XElement("BankNumber", ATM.Element("קוד_בנק").Value),
-                           BranchAddress = new XElement("BranchAddress", ATM.Element("כתובת_ה-ATM").Value),
-                           BranchCity = new XElement("BranchCity", ATM.Element("ישוב").Value),
-                           BranchNumber = new XElement("BranchNumber", ATM.Element("קוד_סניף").Value),
-                       };
+                           BankName = ATM.Element("שם_בנק").Value,
+                           BankNumber = int.Parse(ATM.Element("קוד_בנק").Value),
+                           BranchAddress = ATM.Element("כתובת_ה-ATM").Value,
+                           BranchCity = ATM.Element("ישוב").Value,
+                           BranchNumber = int.Parse(ATM.Element("קוד_סניף").Value)
+                       }
+                       select bank;
+                       //select new
+                       //{
+                       //    BankName = new XElement("BankName", ATM.Element("שם_בנק").Value),
+                       //    BankNumber = new XElement("BankNumber", ATM.Element("קוד_בנק").Value),
+                       //    BranchAddress = new XElement("BranchAddress", ATM.Element("כתובת_ה-ATM").Value),
+                       //    BranchCity = new XElement("BranchCity", ATM.Element("ישוב").Value),
+                       //    BranchNumber = new XElement("BranchNumber", ATM.Element("קוד_סניף").Value),
+                       //};
             ATMs.Distinct();
             foreach (var item in ATMs)
             {
@@ -450,48 +459,11 @@ namespace DAL
 
         #region Bank
 
-        public IEnumerable<Bankdetails> GetAllBanks()
+        public IEnumerable<Bank> GetAllBanks()
         {
-            var banks = LoadListFromXML<Bankdetails>(BanksRootPath);
+            var banks = LoadListFromXML<Bank>(BanksRootPath);
             
-            //BankBranch temp = new BankBranch()
-            //{
-            //    BankName = "Discount",
-            //    BankNumber = 11,
-            //    BranchAddress = "Zabotinsky 11",
-            //    BranchCity = "Jerusalem",
-            //    BranchNumber = 203
-            //};
-            //banks.Add(temp);
-
-            //temp.BankName = "Hapoalim";
-            //temp.BankNumber = 12;
-            //temp.BranchAddress = "Zabotinsky 15";
-            //temp.BranchCity = "Jerusalem";
-            //temp.BranchNumber = 391;
-            //banks.Add(temp);
-
-            //temp.BankName = "Hapoalim";
-            //temp.BankNumber = 12;
-            //temp.BranchAddress = "Aba Hushi 34";
-            //temp.BranchCity = "Haifa";
-            //temp.BranchNumber = 456;
-            //banks.Add(temp);
-
-            //temp.BankName = "Igud";
-            //temp.BankNumber = 13;
-            //temp.BranchAddress = "Ben Yehuda 88";
-            //temp.BranchCity = "Tel Aviv";
-            //temp.BranchNumber = 482;
-            //banks.Add(temp);
-
-            //temp.BankName = "Yahav";
-            //temp.BankNumber = 04;
-            //temp.BranchAddress = "Berdichevsky 92";
-            //temp.BranchCity = "Ramat Gan";
-            //temp.BranchNumber = 012;
-            //banks.Add(temp);
-
+            
 
             return banks;
         }
@@ -501,61 +473,3 @@ namespace DAL
 
 
 }
-/*<GuestRequest>
-    <GuestRequestKey>10000000</GuestRequestKey>
-    <FirstName>Meir</FirstName>
-    <LastName>Ochaun</LastName>
-    <MailAddress>Meir@gmail.com</MailAddress>
-    <Status>Active</Status>
-    <RegistrationDate>2019-06-10T00:00:00</RegistrationDate>
-    <EntryDate>2019-07-10T00:00:00</EntryDate>
-    <ReleaseDate>2019-07-15T00:00:00</ReleaseDate>
-    <Area>Center</Area>
-    <SubArea>Jerusalem</SubArea>
-    <Type>Zimmer</Type>
-    <Adults>2</Adults>
-    <Children>1</Children>
-    <Pool>Unnecessary</Pool>
-    <Jacuzzi>Necessary</Jacuzzi>
-    <Garden>Possible</Garden>
-    <ChildrensAttractions>Necessary</ChildrensAttractions>
-  </GuestRequest>
-  <GuestRequest>
-    <GuestRequestKey>10000001</GuestRequestKey>
-    <FirstName>Ori</FirstName>
-    <LastName>Len</LastName>
-    <MailAddress>ori@gmail.com</MailAddress>
-    <Status>Active</Status>
-    <RegistrationDate>2019-01-10T00:00:00</RegistrationDate>
-    <EntryDate>2019-03-10T00:00:00</EntryDate>
-    <ReleaseDate>2019-03-15T00:00:00</ReleaseDate>
-    <Area>North</Area>
-    <SubArea>Haifa</SubArea>
-    <Type>Zimmer</Type>
-    <Adults>2</Adults>
-    <Children>3</Children>
-    <Pool>Unnecessary</Pool>
-    <Jacuzzi>Necessary</Jacuzzi>
-    <Garden>Possible</Garden>
-    <ChildrensAttractions>Necessary</ChildrensAttractions>
-  </GuestRequest>
-  <GuestRequest>
-    <GuestRequestKey>10000002</GuestRequestKey>
-    <FirstName>Shalom</FirstName>
-    <LastName>Yadid</LastName>
-    <MailAddress>Shalom@gmail.com</MailAddress>
-    <Status>Active</Status>
-    <RegistrationDate>2019-05-10T00:00:00</RegistrationDate>
-    <EntryDate>2019-06-10T00:00:00</EntryDate>
-    <ReleaseDate>2019-06-15T00:00:00</ReleaseDate>
-    <Area>Jerusalem</Area>
-    <SubArea>Jerusalem</SubArea>
-    <Type>Camping</Type>
-    <Adults>4</Adults>
-    <Children>5</Children>
-    <Pool>Unnecessary</Pool>
-    <Jacuzzi>Necessary</Jacuzzi>
-    <Garden>Necessary</Garden>
-    <ChildrensAttractions>Possible</ChildrensAttractions>
-  </GuestRequest> 
-  */
