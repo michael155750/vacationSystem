@@ -49,8 +49,8 @@ namespace PLWPF
             HostPhoneTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             HostMailTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
 
-            MessageBox.Show("Saved!!!");
-            BankDetails bankDetails = new BankDetails();
+
+            BankDetails bankDetails = new BankDetails(hostingUnit );
             (this.Parent as StackPanel).Children.Add(bankDetails);
             (this.Parent as StackPanel).Children.Remove(this);
         }       

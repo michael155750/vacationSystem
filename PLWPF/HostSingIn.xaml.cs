@@ -22,19 +22,22 @@ namespace PLWPF
     /// </summary>
     public partial class HostSingIn : Window
     {
-        HostingUnit hostingUnit = new HostingUnit();
-        HostDetails_UserControl hostDetails_UserControl = new HostDetails_UserControl();
-        AddHostingUnit_UserControl AddHostingUnit_UserControl = new AddHostingUnit_UserControl();
 
         public HostSingIn()
         {
             InitializeComponent();
+
+            HostingUnit hostingUnit = new HostingUnit();
+            hostingUnit.Owner = new Host();
+            hostingUnit.Owner.BankBranchDetails = new BankBranch();
+
+            HostDetails_UserControl hostDetails_UserControl = new HostDetails_UserControl(hostingUnit);
             UcGrid.Children.Add(hostDetails_UserControl);
             UcGrid.DataContext = hostingUnit.Owner;
         }
         private void SaveHostDetails_Click(object sender, RoutedEventArgs e)
-        { 
+        {
         }
-       
+
     }
 }

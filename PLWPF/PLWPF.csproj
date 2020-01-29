@@ -58,11 +58,20 @@
     <Compile Include="BankDetails.xaml.cs">
       <DependentUpon>BankDetails.xaml</DependentUpon>
     </Compile>
+    <Compile Include="CalendarWindow.xaml.cs">
+      <DependentUpon>CalendarWindow.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GuestRequest_UserControl.xaml.cs">
+      <DependentUpon>GuestRequest_UserControl.xaml</DependentUpon>
+    </Compile>
     <Compile Include="HostDetails_UserControl.xaml.cs">
       <DependentUpon>HostDetails_UserControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="HostSingIn.xaml.cs">
       <DependentUpon>HostSingIn.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="MachHostingUnit_userControl.xaml.cs">
+      <DependentUpon>MachHostingUnit_userControl.xaml</DependentUpon>
     </Compile>
     <Compile Include="Owner%27s password.xaml.cs">
       <DependentUpon>Owner%27s password.xaml</DependentUpon>
@@ -76,6 +85,9 @@
     <Compile Include="UpdateHostingUnit_UserControl.xaml.cs">
       <DependentUpon>UpdateHostingUnit_UserControl.xaml</DependentUpon>
     </Compile>
+    <Compile Include="HostingUnit_UserControl.xaml.cs">
+      <DependentUpon>HostingUnit_UserControl.xaml</DependentUpon>
+    </Compile>
     <Page Include="AddHostingUnit_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -84,7 +96,15 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CalendarWindow.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="DeleteHostingUnit_UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GuestRequest_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -97,6 +117,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="HostSingIn.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="MachHostingUnit_userControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -134,6 +158,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UpdateHostingUnit_UserControl.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="HostingUnit_UserControl.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

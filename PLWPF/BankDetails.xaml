@@ -9,7 +9,7 @@
     <Grid x:Name="MainGrid">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*"/>
-            <ColumnDefinition Width="*"/>            
+            <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -27,7 +27,7 @@
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="0" >
             <TextBlock x:Name="BankNumTextBlock" Text="Bank Number:"/>
-            <TextBox x:Name="HostLastNameTextBox" Text="{Binding BankNUmber , Mode=OneWayToSource, UpdateSourceTrigger=Explicit}"/>
+            <TextBox x:Name="BankNumTextBox" Text="{Binding BankNUmber , Mode=OneWayToSource, UpdateSourceTrigger=Explicit}"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1" >
             <TextBlock x:Name="BranchNumberTextBlock" Text="Branch Number :"/>

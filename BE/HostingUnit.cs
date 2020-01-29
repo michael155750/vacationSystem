@@ -22,7 +22,8 @@ namespace BE
             set { Diary = value.Expand(12); }
         }
         public uint Beds { get; set; }
-        
+        public Types Type { get; set; }
+
 
         public bool ChildrensAttractions { get; set; }
         public bool Garden { get; set; }

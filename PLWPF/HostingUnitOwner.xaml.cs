@@ -22,47 +22,77 @@ namespace PLWPF
     /// </summary>
     public partial class HostingUnitOwner : Window
     {
-        BL.Ibl bl = new FactoryBL().GetBL();//צריך להבין איך להעביר את המידע בין החלונות ולכן מופה זה הינו זמני בלבד!!!!
+        BL.Ibl bl = new FactoryBL().GetBL();
+        Host host;
+        // private List<string> OptionList;
 
-        private List<string> OptionList;
         public HostingUnitOwner()
         {
             InitializeComponent();
 
-            OptionList = new List<string> { "Add Unit", "Update Unit", "Delete Unit" };
-            HostComboBox.ItemsSource = OptionList;
-
         }
-        private void HostComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+
+        private void CheckDetailsButton_Click(object sender, RoutedEventArgs e)
         {
-            int index = HostComboBox.SelectedIndex;
-            switch (index)
+            try
             {
-                case 0:
-                    MainGrid.Children.RemoveRange(1, 3);
-                    AddHostingUnit_UserControl add_uc  = new AddHostingUnit_UserControl();
-                    MainGrid.Children.Add(add_uc);
-                    Grid.SetRow(add_uc, 1);//?
-                    Grid.SetColumn(add_uc, 1);//?
-                    break;
-                case 1:
-                    MainGrid.Children.RemoveRange(1, 3);
-                    UpdateHostingUnit_UserControl Update_uc = new UpdateHostingUnit_UserControl();
-                    MainGrid.Children.Add(Update_uc);
-                    Grid.SetRow(Update_uc, 1);//?
-                    Grid.SetColumn(Update_uc, 1);//?
-                    break;
-                case 2:
-                    MainGrid.Children.RemoveRange(1, 3);
-                    DeleteHostingUnit_UserControl Delete_uc = new DeleteHostingUnit_UserControl();
-                    MainGrid.Children.Add(Delete_uc);
-                    Grid.SetRow(Delete_uc, 1);//?
-                    Grid.SetColumn(Delete_uc, 1);//?
-                    break;
-                default:
-                    break;
+                long key = long.Parse(HostLogIn_TextBox.Text);
+
+                host = bl.FindHostByKey(key);
+
+                Uc_StackPanel.Children.Clear(); //clear the satckPanel
+                Button AddUnitButton = new Button();//create button that is click will open UC for add unit
+                AddUnitButton.Content = "Add Unit";//named the button
+                AddUnitButton.Click += AddUnitButton_Click;//add the function to click event
+                Button UpdateUnitButton = new Button();
+                UpdateUnitButton.Content = "Update Unit";
+                UpdateUnitButton.Click += UpdateUnitButton_Click;
+                Button DeleteUnitButton = new Button();
+                DeleteUnitButton.Content = "Delete Unit";
+                DeleteUnitButton.Click += DeleteUnitButton_Click;
+                Buttons_Grid.Children.Add(AddUnitButton);//add the button to "Buttons_Grid"
+                Buttons_Grid.Children.Add(UpdateUnitButton);
+                Buttons_Grid.Children.Add(DeleteUnitButton);
+                Grid.SetColumn(AddUnitButton, 0);
+                Grid.SetColumn(UpdateUnitButton, 1);
+                Grid.SetColumn(DeleteUnitButton, 2);
+            }
+            catch (Exception ex)
+            {
+                HostLogIn_TextBox.Text = null;
+                MessageBox.Show(ex.Message);
             }
         }
 
+        private void AddUnitButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            MainGrid.Children.RemoveRange(1, 3);
+            AddHostingUnit_UserControl add_uc = new AddHostingUnit_UserControl(host);
+            MainGrid.Children.Add(add_uc);
+            Grid.SetRow(add_uc, 1);//?
+            Grid.SetColumn(add_uc, 1);//?
+        }
+
+        private void UpdateUnitButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            MainGrid.Children.RemoveRange(1, 3);
+            UpdateHostingUnit_UserControl update_uc = new UpdateHostingUnit_UserControl();
+            MainGrid.Children.Add(update_uc);
+            Grid.SetRow(update_uc, 1);//?
+            Grid.SetColumn(update_uc, 1);//?
+        }
+
+        private void DeleteUnitButton_Click(object sender, RoutedEventArgs e)
+        {
+
+            MainGrid.Children.RemoveRange(1, 3);
+            DeleteHostingUnit_UserControl Delete_uc = new DeleteHostingUnit_UserControl();
+            MainGrid.Children.Add(Delete_uc);
+            Grid.SetRow(Delete_uc, 1);//?
+            Grid.SetColumn(Delete_uc, 1);//?
+        }
     }
 }

@@ -42,3 +42,11 @@ C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\BankDetails.baml
 C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\Owner's password.baml
 C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\OwnerStatisticsUserControl.baml
 C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\Owner_window.baml
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\CalendarWindow.g.cs
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\MachHostingUnit_userControl.g.cs
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\HostingUnit_UserControl.g.cs
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\GuestRequest_UserControl.g.cs
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\CalendarWindow.baml
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\MachHostingUnit_userControl.baml
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\HostingUnit_UserControl.baml
+C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\GuestRequest_UserControl.baml

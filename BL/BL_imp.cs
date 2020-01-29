@@ -5,6 +5,8 @@ using System.ComponentModel;
 using System.Data;
 using DAL;
 using BE;
+using System.Net.Mail;
+
 
 namespace BL
 {
@@ -434,8 +436,10 @@ namespace BL
             if (newStatus == OrderStatus.MailSend)
             {
                 currentOrder.OrderDate = DateTime.Now;
-                //suppose to changed in the finnal step
-                //Console.WriteLine("mail send");
+                //MailMessage mail = new MailMessage();
+                ////find the mail address of the guest request creator
+                //mail.To.Add(FindReqByKey(FindOrderByKey(orderKey).GuestRequestKey).MailAddress);
+                //mail.From = new MailAddress("michael155750@gmail.com");
             }
 
             if (newStatus == OrderStatus.DillMade)
@@ -472,7 +476,7 @@ namespace BL
 
         public List<HostingUnit> MachUnitToRequest(GuestRequest gue)
         {
-            var a = from item in dal.GetAllUnits()
+            var a = (from item in dal.GetAllUnits()
                     let beds = gue.Children + gue.Adults
                     where item.Area == gue.Area
                        && item.SubArea == gue.SubArea
@@ -481,10 +485,10 @@ namespace BL
                        && ChoiceCompare(gue.Pool, item.Pool)
                        && ChoiceCompare(gue.Jacuzzi, item.Jacuzzi)
                        && ChoiceCompare(gue.ChildrensAttractions, item.ChildrensAttractions)
-                    select item;
+                    select item).ToList();
 
 
-            return (List<HostingUnit>)a;
+            return a;
 
         }
 

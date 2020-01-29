@@ -24,37 +24,19 @@ namespace PLWPF
     public partial class MainWindow : Window
     {
         BL.Ibl bl = new FactoryBL().GetBL();
-        
+
         public MainWindow()
         {
             InitializeComponent();
+            GuestRequest_UserControl guestRequest_UserControl = new GuestRequest_UserControl();
+            UserControlGrid.Children.Add(guestRequest_UserControl);
         }
 
-        private void OwnerButton_Click(object sender, RoutedEventArgs e)
-        {
-            //string password = OwnerBox.Text;
-            //if (password == "0000")
-            //{
-            //    MessageBox.Show("correct!!!");
-            //}
-            Owner_window ow = new Owner_window();
-            ow.ShowDialog();
-        }
+
         private void HostingUnitOwnerButton_Click(object sender, RoutedEventArgs e)
         {
-            try
-            {
-                long key = long.Parse(HostingUnitOwnerBox.Text);
-
-                Host host = bl.FindHostByKey(key);
-                HostingUnitOwner hostingUnitOwner = new HostingUnitOwner();
-                hostingUnitOwner.ShowDialog();
-            }
-            catch (Exception ex)
-            {
-                HostingUnitOwnerBox.Text = null;
-                MessageBox.Show(ex.Message);
-            }
+            HostingUnitOwner hostingUnitOwner = new HostingUnitOwner();
+            hostingUnitOwner.ShowDialog();
         }
         private void SingIn_Click(object sender, RoutedEventArgs e)
         {
@@ -62,5 +44,11 @@ namespace PLWPF
             hostSingIn.ShowDialog();
         }
 
+        private void Owner_Button_Click(object sender, RoutedEventArgs e)
+        {
+            Owner_window ow = new Owner_window();
+            ow.ShowDialog();
+
+        }
     }
 }

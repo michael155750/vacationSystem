@@ -26,7 +26,7 @@ namespace PLWPF
         public CalendarWindow(ref List<DateTime> dates)
         {
             InitializeComponent();
-            Ibl bl = new BL_imp();//FactoryBL.getBL();
+            BL.Ibl bl = new FactoryBL().GetBL();
             d = dates;
         }
 

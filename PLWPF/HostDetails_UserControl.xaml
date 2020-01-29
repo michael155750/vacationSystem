@@ -36,7 +36,7 @@
         <StackPanel Grid.Row="2" Grid.Column="1" >
             <TextBlock x:Name="HostMailTextBlock" Text="Mail adress:"/>
             <TextBox x:Name="HostMailTextBox" Text="{Binding MailAddress, Mode=OneWayToSource, UpdateSourceTrigger=Explicit}"/>
-            <Button x:Name="NextButton" Content="next" Click="SaveHostDetails_Click" DockPanel.Dock="Bottom" />
+            <Button x:Name="NextButton" Content="next" Click="SaveHostDetails_Click" DockPanel.Dock="Bottom" IsEnabled="{Binding }"/>
         </StackPanel>
     </Grid>
 </UserControl>

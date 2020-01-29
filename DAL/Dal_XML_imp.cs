@@ -37,15 +37,14 @@ namespace DAL
         
         private XElement OrderRoot;
         private XElement ConfigRoot;
-        private XElement BanksRoot;
-       
+        
 
         private const string RequestRootPath = @"..\..\..\XML_files\XML_Req.xml";
         private const string UnitRootPath = @"..\..\..\XML_files\XML_Unit.xml";
         private const string OrderRootPath = @"..\..\..\XML_files\XML_Order.xml";
         private const string ConfigRootPath = @"..\..\..\XML_files\XML_Config.xml";
         private const string BanksRootPath = @"..\..\..\XML_files\XML_Banks.xml";
-        private const string BanksWebRootPath = @"..\..\..\ProjectIn.Net\XML_BanksFromWeb.xml";
+        private const string BanksWebRootPath = @"..\..\..\XML_files\XML_BanksFromWeb.xml";
 
         private Dal_XML_imp()
         {
@@ -136,7 +135,7 @@ namespace DAL
                 string BanksServerPath =
                     @"http://www.boi.org.il/he/BankingSupervision/BanksAndBranchLocations/Lists/BoiBankBranchesDocs/atm.xml";
 
-                wc.DownloadFile(BanksServerPath, BanksRootPath);
+                wc.DownloadFile(BanksServerPath, BanksWebRootPath);
             }
             catch (Exception)
             {
@@ -148,7 +147,7 @@ namespace DAL
                 wc.Dispose();
             }
 
-            XElement bankWebRoot;
+            XElement bankWebRoot = new XElement("ATMs");
             try
             {
                 bankWebRoot = XElement.Load(BanksWebRootPath);
@@ -159,17 +158,34 @@ namespace DAL
                 throw new DirectoryNotFoundException("Problem with loading the file");
             }
 
-            XElement bankRoot;
-            try
-            {
-                bankRoot = XElement.Load(BanksRootPath);
+            XElement bankRoot = new XElement("banks");
+            //try
+            //{
+            //    bankRoot = new XElement("banks");
 
-            }
-            catch
+            //}
+            //catch
+            //{
+            //    throw new DirectoryNotFoundException("Problem with loading the file");
+            //}
+            
+            var ATMs = from ATM in bankWebRoot.Elements()
+                       select new
+                       {
+                           BankName = new XElement("BankName", ATM.Element("שם_בנק").Value),
+                           BankNumber = new XElement("BankNumber", ATM.Element("קוד_בנק").Value),
+                           BranchAddress = new XElement("BranchAddress", ATM.Element("כתובת_ה-ATM").Value),
+                           BranchCity = new XElement("BranchCity", ATM.Element("ישוב").Value),
+                           BranchNumber = new XElement("BranchNumber", ATM.Element("קוד_סניף").Value),
+                       };
+            ATMs.Distinct();
+            foreach (var item in ATMs)
             {
-                throw new DirectoryNotFoundException("Problem with loading the file");
+                bankRoot.Add(new XElement("bank", item.BankName, item.BankNumber, item.BranchNumber,
+                    item.BranchAddress,item.BranchCity));
             }
 
+            bankRoot.Save(BanksRootPath);
         }
 
             #region Guest request
@@ -436,44 +452,45 @@ namespace DAL
 
         public IEnumerable<BankBranch> GetAllBanks()
         {
-            List<BankBranch> banks = new List<BankBranch>();
-            BankBranch temp = new BankBranch()
-            {
-                BankName = "Discount",
-                BankNumber = 11,
-                BranchAddress = "Zabotinsky 11",
-                BranchCity = "Jerusalem",
-                BranchNumber = 203
-            };
-            banks.Add(temp);
+            var banks = LoadListFromXML<BankBranch>(BanksRootPath);
+            
+            //BankBranch temp = new BankBranch()
+            //{
+            //    BankName = "Discount",
+            //    BankNumber = 11,
+            //    BranchAddress = "Zabotinsky 11",
+            //    BranchCity = "Jerusalem",
+            //    BranchNumber = 203
+            //};
+            //banks.Add(temp);
 
-            temp.BankName = "Hapoalim";
-            temp.BankNumber = 12;
-            temp.BranchAddress = "Zabotinsky 15";
-            temp.BranchCity = "Jerusalem";
-            temp.BranchNumber = 391;
-            banks.Add(temp);
+            //temp.BankName = "Hapoalim";
+            //temp.BankNumber = 12;
+            //temp.BranchAddress = "Zabotinsky 15";
+            //temp.BranchCity = "Jerusalem";
+            //temp.BranchNumber = 391;
+            //banks.Add(temp);
 
-            temp.BankName = "Hapoalim";
-            temp.BankNumber = 12;
-            temp.BranchAddress = "Aba Hushi 34";
-            temp.BranchCity = "Haifa";
-            temp.BranchNumber = 456;
-            banks.Add(temp);
+            //temp.BankName = "Hapoalim";
+            //temp.BankNumber = 12;
+            //temp.BranchAddress = "Aba Hushi 34";
+            //temp.BranchCity = "Haifa";
+            //temp.BranchNumber = 456;
+            //banks.Add(temp);
 
-            temp.BankName = "Igud";
-            temp.BankNumber = 13;
-            temp.BranchAddress = "Ben Yehuda 88";
-            temp.BranchCity = "Tel Aviv";
-            temp.BranchNumber = 482;
-            banks.Add(temp);
+            //temp.BankName = "Igud";
+            //temp.BankNumber = 13;
+            //temp.BranchAddress = "Ben Yehuda 88";
+            //temp.BranchCity = "Tel Aviv";
+            //temp.BranchNumber = 482;
+            //banks.Add(temp);
 
-            temp.BankName = "Yahav";
-            temp.BankNumber = 04;
-            temp.BranchAddress = "Berdichevsky 92";
-            temp.BranchCity = "Ramat Gan";
-            temp.BranchNumber = 012;
-            banks.Add(temp);
+            //temp.BankName = "Yahav";
+            //temp.BankNumber = 04;
+            //temp.BranchAddress = "Berdichevsky 92";
+            //temp.BranchCity = "Ramat Gan";
+            //temp.BranchNumber = 012;
+            //banks.Add(temp);
 
 
             return banks;

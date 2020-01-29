@@ -17,17 +17,25 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <StackPanel Grid.Row="1" Grid.Column="0">
+        <StackPanel x:Name="UserControlGrid" Grid.Row="0" Grid.Column="0" Grid.RowSpan="2" Grid.ColumnSpan="3">
+
+        </StackPanel>
+        <Grid Grid.Row="2" Grid.Column="0" Margin="0,84,178,0" >
+            <Button x:Name="Owner_Button" Content="Owners" Margin="0,18,0,0" Click="Owner_Button_Click"/>
+            <Button x:Name="Host_Button" Content="Log In (Host)" Margin="106,18,-106,0" Click="HostingUnitOwnerButton_Click"/>
+            <Button x:Name="SignInHost_Button" Content="Sign In (Host)" Margin="218,18,-215,0" Click="SingIn_Click"/>
+        </Grid>
+        <!--<StackPanel Grid.Row="1" Grid.Column="0">
             <TextBlock Text="Owner"/>
-           
-            <Button x:Name="OwnerButton" Content="login" Click="OwnerButton_Click"/>
+            <TextBox x:Name="OwnerBox"/>
+            <Button x:Name="OwnerButton" Content="accept" Click="OwnerButton_Click"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
             <TextBlock Text="Hosting Unit"/>
             <TextBox x:Name="HostingUnitOwnerBox"/>
             <Button x:Name="HostingUnitOwnerButton" Content="accept" Click="HostingUnitOwnerButton_Click"/>
-            <Button x:Name="SingInButton" Content="Sing In" Click="SingIn_Click" />
+            <Button x:Name="SingInButton" Content="Sign In" Click="SingIn_Click" />
         </StackPanel>       
-        <Button x:Name="Client" Content="Client" Grid.Row="1" Grid.Column="2"/>
+        <Button x:Name="Client" Content="Client" Grid.Row="1" Grid.Column="2"/>-->
     </Grid>
 </Window>

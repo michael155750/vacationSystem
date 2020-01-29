@@ -1,4 +1,4 @@
-﻿ using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class BankBranch
+    public class BankBranch//represent bank account
     {
         public int BankNumber { get; set; }
         public string BankName { get; set; }
@@ -21,11 +21,11 @@ namespace BE
             return "Bank Account Number: " + BankAccountNumber.ToString() + "\n" +
                     "my commition: " + MyCommition.ToString() + "\n" +
                     "Collection Clearance? " + CollectionClearance.ToString() + "\n" +
-                    "Bank name: " + BankName.ToString() + "/n" +
+                    "Bank name: " + BankName + "/n" +
                     "Bank Number: " + BankNumber.ToString() + "/n" +
                     "Branch number: " + BranchNumber.ToString() + "/n" +
-                    "Branch address: " + BranchAddress.ToString() + "/n" +
-                    "Branch city: " + BranchCity.ToString() + "/n";
+                    "Branch address: " + BranchAddress + "/n" +
+                    "Branch city: " + BranchCity + "/n";
         }
     }
 }

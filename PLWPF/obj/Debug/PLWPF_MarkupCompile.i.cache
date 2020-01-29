@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\App.xaml
-111925731953
+151036533536
 
-192059675077
+231531034024
 15-193045262
-AddHostingUnit_UserControl.xaml;BankDetails.xaml;DeleteHostingUnit_UserControl.xaml;HostDetails_UserControl.xaml;HostingUnitOwner.xaml;HostSingIn.xaml;MainWindow.xaml;Owner's password.xaml;OwnerStatisticsUserControl.xaml;Owner_window.xaml;UpdateHostingUnit_UserControl.xaml;
+AddHostingUnit_UserControl.xaml;BankDetails.xaml;CalendarWindow.xaml;DeleteHostingUnit_UserControl.xaml;GuestRequest_UserControl.xaml;HostDetails_UserControl.xaml;HostingUnitOwner.xaml;HostSingIn.xaml;MachHostingUnit_userControl.xaml;MainWindow.xaml;Owner's password.xaml;OwnerStatisticsUserControl.xaml;Owner_window.xaml;UpdateHostingUnit_UserControl.xaml;HostingUnit_UserControl.xaml;
 
-False
+True
 

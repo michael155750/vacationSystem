@@ -33,12 +33,12 @@ namespace PLWPF
         {
             hostingUnit = h;
             InitializeComponent();
-            MainGrid.DataContext = hostingUnit.Owner;
+            MainGrid.DataContext = hostingUnit.Owner.BankBranchDetails;
         }
         private void SaveHostDetails_Click(object sender, RoutedEventArgs e)
         {
             BankNameTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
-            BankNumTextBlock.GetBindingExpression(TextBox.TextProperty).UpdateSource();
+            BankNumTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             BranchNumberTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             BranchAddressTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             BankAccountNumberTextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();

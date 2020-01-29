@@ -41,7 +41,20 @@ namespace PLWPF
             MainGrid.DataContext = hostingUnit;
 
         }
-        private void SaveButton_Click(object sender, RoutedEventArgs e)
+        public AddHostingUnit_UserControl(Host host)
+	
+       {
+	
+           InitializeComponent();
+	
+           this.HostingUnitArea_ComboBox.ItemsSource = Enum.GetValues(typeof(BE.Areas));
+	
+           MainGrid.DataContext = hostingUnit;
+	
+           hostingUnit.Owner = host;
+	
+       }
+    private void SaveButton_Click(object sender, RoutedEventArgs e)
         {
             HostingUnitName_TextBox.GetBindingExpression(TextBox.TextProperty).UpdateSource();
             HostingUnitSubArea_Textbox.GetBindingExpression(TextBox.TextProperty).UpdateSource();

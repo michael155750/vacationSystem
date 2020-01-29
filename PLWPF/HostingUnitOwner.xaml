@@ -14,6 +14,18 @@
             <RowDefinition Height="50"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <ComboBox x:Name="HostComboBox" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" SelectionChanged ="HostComboBox_SelectionChanged"/>
+        <!--<ComboBox x:Name="HostComboBox" Grid.Column="2" Grid.Row="0" HorizontalAlignment="Stretch" SelectionChanged ="HostComboBox_SelectionChanged"/>-->
+        <Grid x:Name="Buttons_Grid"  Grid.Row="0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+        </Grid>
+        <StackPanel x:Name="Uc_StackPanel" Grid.Row="1">
+            <TextBlock x:Name="HostLogIn_TextBlock" Text="Please enter your password:" FontSize="50" HorizontalAlignment="Center"/>
+            <TextBox x:Name="HostLogIn_TextBox" Margin="10" MaxLength="8"/>
+            <Button x:Name="CheckDetails_Button" HorizontalAlignment="Center" Content="Enter" Click="CheckDetailsButton_Click"/>
+        </StackPanel>
     </Grid>
 </Window>

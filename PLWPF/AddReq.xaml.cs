@@ -20,16 +20,16 @@ namespace PLWPF
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class AddReq : Window
     {
         GuestRequest temp = new GuestRequest();
 
-        public MainWindow()
+        public AddReq()
         {
             InitializeComponent();
 
 
-            Ibl bl = new BL_imp();//FactoryBL.getBL();
+            BL.Ibl bl = new FactoryBL().GetBL();
             GuestRequest req = new GuestRequest ();
 
             for (int i = 0; i < 5; i++)

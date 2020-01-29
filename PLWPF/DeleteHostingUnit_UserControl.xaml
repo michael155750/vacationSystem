@@ -9,6 +9,6 @@
     <StackPanel HorizontalAlignment="Center">
         <TextBlock x:Name="DeleteTextBlock" Text="Enter the key of the unit you want to delete" FontSize="30"/>
         <TextBox x:Name="DeleteTextBox"/>
-        <Button x:Name="DeleteButton" Content="Delete Unit"/>
+        <Button x:Name="DeleteButton" Content="Delete Unit" Click="DeleteButton_Click"/>
     </StackPanel>
 </UserControl>
