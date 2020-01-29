@@ -205,7 +205,7 @@ namespace PL
                         Console.WriteLine("insert owner's phone number");
                         host.FhoneNumber = Convert.ToInt64(Console.ReadLine());
 
-                        host.BankBranchDetails = new BankBranch();
+                        host.BankBranchDetails = new Bankdetails();
                         Console.WriteLine("insert owner's bank account number");
                         host.BankBranchDetails.BankAccountNumber = Convert.ToInt64(Console.ReadLine());
 

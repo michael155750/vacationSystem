@@ -450,9 +450,9 @@ namespace DAL
 
         #region Bank
 
-        public IEnumerable<BankBranch> GetAllBanks()
+        public IEnumerable<Bankdetails> GetAllBanks()
         {
-            var banks = LoadListFromXML<BankBranch>(BanksRootPath);
+            var banks = LoadListFromXML<Bankdetails>(BanksRootPath);
             
             //BankBranch temp = new BankBranch()
             //{

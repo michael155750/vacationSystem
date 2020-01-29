@@ -38,7 +38,7 @@ namespace DAL
             throw new NotImplementedException();
         }
 
-        public IEnumerable<BankBranch> GetAllBanks()
+        public IEnumerable<Bankdetails> GetAllBanks()
         {
             throw new NotImplementedException();
         }

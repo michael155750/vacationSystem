@@ -12,7 +12,7 @@ namespace BL
 {
     public class BL_imp : Ibl
     {
-        private BL_imp()//need to delete this function?
+        private BL_imp()
         {
         }
         private static BL_imp instance = null;
@@ -506,12 +506,12 @@ namespace BL
 
         #region Bank
 
-        public IEnumerable<BankBranch> GetAllBanks()
+        public IEnumerable<Bankdetails> GetAllBanks()
         {
             return dal.GetAllBanks();
         }
 
-        public BankBranch FindBranch(int bankNum, int branchNum)
+        public Bankdetails FindBranch(int bankNum, int branchNum)
         {
             if (!dal.GetAllBanks().Any(
                 x => x.BankNumber == bankNum))

@@ -29,7 +29,7 @@ namespace PLWPF
 
             HostingUnit hostingUnit = new HostingUnit();
             hostingUnit.Owner = new Host();
-            hostingUnit.Owner.BankBranchDetails = new BankBranch();
+            hostingUnit.Owner.BankBranchDetails = new Bankdetails();
 
             HostDetails_UserControl hostDetails_UserControl = new HostDetails_UserControl(hostingUnit);
             UcGrid.Children.Add(hostDetails_UserControl);

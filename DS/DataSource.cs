@@ -38,7 +38,7 @@ namespace DS
                     FhoneNumber = 0500000000,
                     MailAddress = "Michael@gmail.comm",
 
-                    BankBranchDetails = new BankBranch()
+                    BankBranchDetails = new Bankdetails()
                     {
                        BankName = "Hapoalim",
                        BankNumber = 12,
@@ -72,7 +72,7 @@ namespace DS
                     FhoneNumber = 0511111111,
                     MailAddress = "Tzur@gmail.comm",
 
-                    BankBranchDetails = new BankBranch()
+                    BankBranchDetails = new Bankdetails()
                     {
                         BankName = "Discount",
                         BankNumber = 11,
@@ -106,7 +106,7 @@ namespace DS
                     FhoneNumber = 0533333333,
                     MailAddress = "David@gmail.comm",
 
-                    BankBranchDetails = new BankBranch()
+                    BankBranchDetails = new Bankdetails()
                     {
                         BankName = "Hapoalim",
                         BankNumber = 12,

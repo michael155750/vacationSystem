@@ -13,7 +13,7 @@ namespace BE
         public string LastName { get; set; }
         public long FhoneNumber { get; set; }
         public string MailAddress { get; set; }
-        public BankBranch BankBranchDetails { get; set; }     
+        public Bankdetails BankBranchDetails { get; set; }     
         public override string ToString()
         {
             return "Host key: " + HostKey.ToString() + "\n" +
