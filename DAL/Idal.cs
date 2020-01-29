@@ -77,7 +77,7 @@ namespace DAL
         /// return a collection of all the bank branches in the Israel
         /// </summary>
         /// <returns></returns>
-        IEnumerable<Bankdetails> GetAllBanks();
+        IEnumerable<Bank> GetAllBanks();
 
     }
 }

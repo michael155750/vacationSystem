@@ -158,18 +158,10 @@ namespace DAL
                 throw new DirectoryNotFoundException("Problem with loading the file");
             }
 
-            XElement bankRoot = new XElement("banks");
-            //try
-            //{
-            //    bankRoot = new XElement("banks");
+           // XElement bankRoot = new XElement("banks");
+            
 
-            //}
-            //catch
-            //{
-            //    throw new DirectoryNotFoundException("Problem with loading the file");
-            //}
-
-            var ATMs = from ATM in bankWebRoot.Elements()
+            var ATMs = (from ATM in bankWebRoot.Elements()
                        let bank = new Bank()
                        {
                            BankName = ATM.Element("שם_בנק").Value,
@@ -178,23 +170,17 @@ namespace DAL
                            BranchCity = ATM.Element("ישוב").Value,
                            BranchNumber = int.Parse(ATM.Element("קוד_סניף").Value)
                        }
-                       select bank;
-                       //select new
-                       //{
-                       //    BankName = new XElement("BankName", ATM.Element("שם_בנק").Value),
-                       //    BankNumber = new XElement("BankNumber", ATM.Element("קוד_בנק").Value),
-                       //    BranchAddress = new XElement("BranchAddress", ATM.Element("כתובת_ה-ATM").Value),
-                       //    BranchCity = new XElement("BranchCity", ATM.Element("ישוב").Value),
-                       //    BranchNumber = new XElement("BranchNumber", ATM.Element("קוד_סניף").Value),
-                       //};
+                       select bank).ToList();
+                       
             ATMs.Distinct();
-            foreach (var item in ATMs)
-            {
-                bankRoot.Add(new XElement("bank", item.BankName, item.BankNumber, item.BranchNumber,
-                    item.BranchAddress,item.BranchCity));
-            }
+            SaveListToXML(ATMs, BanksRootPath);
+            //foreach (var item in ATMs)
+            //{
+            //    bankRoot.Add(new XElement("bank", item.BankName, item.BankNumber, item.BranchNumber,
+            //        item.BranchAddress,item.BranchCity));
+            //}
 
-            bankRoot.Save(BanksRootPath);
+            //bankRoot.Save(BanksRootPath);
         }
 
             #region Guest request

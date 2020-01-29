@@ -50,3 +50,55 @@ C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\CalendarWindow.baml
 C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\MachHostingUnit_userControl.baml
 C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\HostingUnit_UserControl.baml
 C:\Users\haya011\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\GuestRequest_UserControl.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\bin\Debug\PLWPF.exe.config
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\bin\Debug\PLWPF.exe
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\bin\Debug\PLWPF.pdb
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\bin\Debug\BE.dll
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\bin\Debug\BL.dll
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\bin\Debug\DAL.dll
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\bin\Debug\DS.dll
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\bin\Debug\BE.pdb
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\bin\Debug\BL.pdb
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\bin\Debug\DAL.pdb
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\bin\Debug\DS.pdb
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\PLWPF.csprojAssemblyReference.cache
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\AddHostingUnit_UserControl.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\BankDetails.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\CalendarWindow.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\DeleteHostingUnit_UserControl.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\GuestRequest_UserControl.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\HostDetails_UserControl.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\HostingUnitOwner.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\HostSingIn.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\MachHostingUnit_userControl.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\MainWindow.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\Owner's password.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\OwnerStatisticsUserControl.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\Owner_window.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\UpdateHostingUnit_UserControl.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\HostingUnit_UserControl.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\App.g.cs
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\PLWPF_MarkupCompile.cache
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\PLWPF_MarkupCompile.lref
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\AddHostingUnit_UserControl.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\BankDetails.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\CalendarWindow.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\DeleteHostingUnit_UserControl.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\GuestRequest_UserControl.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\HostDetails_UserControl.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\HostingUnitOwner.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\HostSingIn.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\MachHostingUnit_userControl.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\MainWindow.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\Owner's password.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\OwnerStatisticsUserControl.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\Owner_window.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\UpdateHostingUnit_UserControl.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\HostingUnit_UserControl.baml
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\PLWPF.g.resources
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\PLWPF.Properties.Resources.resources
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\PLWPF.csproj.GenerateResource.cache
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\PLWPF.csproj.CoreCompileInputs.cache
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\PLWPF.csproj.CopyComplete
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\PLWPF.exe
+C:\Users\צור איתן\Source\Repos\ProjectIn.Net\PLWPF\obj\Debug\PLWPF.pdb

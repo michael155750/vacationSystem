@@ -253,10 +253,10 @@ namespace DAL
 
         #region Bank
 
-        public IEnumerable<Bankdetails> GetAllBanks()
+        public IEnumerable<Bank> GetAllBanks()
         {
-            List<Bankdetails> banks = new List<Bankdetails>();
-            Bankdetails temp = new Bankdetails()
+            List<Bank> banks = new List<Bank>();
+            Bank temp = new Bank()
             {
                 BankName = "Discount",
                 BankNumber = 11,
