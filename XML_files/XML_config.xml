@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <configurations>
   <globalGuestRequestKey>10000007</globalGuestRequestKey>
-  <globalHostingUnitKey>10000003</globalHostingUnitKey>
+  <globalHostingUnitKey>10000004</globalHostingUnitKey>
   <globalOrderKey>10000000</globalOrderKey>
   <globalHostKey>10000003</globalHostKey>
   <commition>10</commition>

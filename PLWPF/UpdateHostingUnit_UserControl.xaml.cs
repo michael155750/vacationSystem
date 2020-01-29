@@ -105,7 +105,7 @@ namespace PLWPF
             MonthlyCalendar.SelectionMode = CalendarSelectionMode.MultipleRange;
             MonthlyCalendar.IsTodayHighlighted = true;
             MonthlyCalendar.DisplayDateStart = DateTime.Parse("1.1.2020");
-            MonthlyCalendar.DisplayDateEnd = DateTime.Parse("12.31.2020");
+            MonthlyCalendar.DisplayDateEnd = DateTime.Parse("31.12.2020");
             return MonthlyCalendar;
         }
         private void addCurrentList(List<DateTime> tList, HostingUnit hostingUnit)
