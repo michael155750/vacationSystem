@@ -25,16 +25,16 @@
                 <ComboBox x:Name="Area_ComboBox" SelectedIndex="{Binding Path=Area, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}" />
             </StackPanel>
             <StackPanel>
-                <TextBlock Text="Enter number of addult: "/>
+                <TextBlock Text="Enter number of adults: "/>
                 <TextBox x:Name= "Adult_Textbox" Text="{Binding Path= SubArea, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="0">
-            <TextBlock Text="Chose Arrival date:" Margin="0"/>
+            <TextBlock Text="Choose Arrival date:" Margin="0"/>
             <DatePicker x:Name="ArrivalDate" Margin="0" SelectedDate="{Binding Path = EntryDate, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="1">
-            <TextBlock Text="Enter Suba-area: "/>
+            <TextBlock Text="Enter Sub-area: "/>
             <TextBox x:Name= "SubArea_Textbox" Text="{Binding Path= SubArea, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
             <StackPanel>
                 <TextBlock Text="Enter number of children: " Margin="2"/>
@@ -42,11 +42,11 @@
             </StackPanel>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="1">
-            <TextBlock Text="Chose leaving date:" Margin="0"/>
+            <TextBlock Text="Choose leaving date:" Margin="0"/>
             <DatePicker x:Name="LeavingDate" Margin="0" SelectedDate="{Binding Path = EntryDate, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
         </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="2">
-            <TextBlock Text="Choce type of hosting unit: "/>
+            <TextBlock Text="Choose type of hosting unit: "/>
             <ComboBox x:Name="Type_ComboBox" SelectedIndex="{Binding Path=Type, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
             <Grid Grid.Row="3" Grid.Column="0">
                 <Grid.ColumnDefinitions>
@@ -65,6 +65,6 @@
         </StackPanel>
         <StackPanel Grid.Row="3" Grid.Column="0">
         </StackPanel>
-        <Button x:Name="SerchButton" Content="Serch" Grid.Row="3" Grid.Column="3" Click="SerchButton_Click"/>
+        <Button x:Name="SerchButton" Content="Search" Grid.Row="3" Grid.Column="3" Click="SerchButton_Click"/>
     </Grid>
 </UserControl>
