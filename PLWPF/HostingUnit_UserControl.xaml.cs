@@ -25,12 +25,23 @@ namespace PLWPF
     {
         BL.Ibl bl = new FactoryBL().GetBL();
         HostingUnit hostingUnit = new HostingUnit();
+        GuestRequest guestRequest = new GuestRequest();
 
-        public HostingUnit_UserControl(HostingUnit h)
+        public HostingUnit_UserControl(HostingUnit h , GuestRequest g)
         {
+            guestRequest = g;
             hostingUnit = h;
             InitializeComponent();
-            MainGrid.DataContext = hostingUnit;
+            MainGrid.DataContext = hostingUnit;            
+        }
+        private void Owner_Button_Click(object sender, RoutedEventArgs e)
+        {
+            bl.AddRequest(guestRequest);
+            bl.AddOrder(guestRequest.GuestRequestKey , hostingUnit.HostingUnitKey);
+            MessageBox.Show(hostingUnit.HostingUnitName + " Selecte");
+
+            //GuestRequest_UserControl guestRequest_UserControl = new GuestRequest_UserControl();  
+            
         }
     }
 }

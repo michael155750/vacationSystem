@@ -60,9 +60,25 @@ namespace PLWPF
                 guestRequest.Garden = ThreeStateToChoice(Garden_CheckBox);
                 guestRequest.ChildrensAttractions = ThreeStateToChoice(ChildrensAttractions_CheckBox);
 
-                MachHostingUnit_UserControl machHostingUnit_UserControl = new MachHostingUnit_UserControl(guestRequest);
-                (this.Parent as StackPanel).Children.Add(machHostingUnit_UserControl);
-                (this.Parent as StackPanel).Children.Remove(this);
+                List<HostingUnit> HostingUnitList = bl.MachUnitToRequest(guestRequest);
+
+                if (HostingUnitList.Count() == 0)
+                {
+                    MessageBox.Show("Sorry, their is no hosting unit maching to your request!!");
+                    GuestRequest_UserControl guestRequest_UserControl = new GuestRequest_UserControl();
+                    (this.Parent as StackPanel).Children.Add(guestRequest_UserControl);
+                    (this.Parent as StackPanel).Children.Remove(this);
+                }
+                else
+                {
+                    foreach (var hu in HostingUnitList)
+                    {
+                        HostingUnit_UserControl hostingUnit_UserControl = new HostingUnit_UserControl(hu, guestRequest);
+                        (this.Parent as StackPanel).Children.Add(hostingUnit_UserControl);
+
+                    }
+                    (this.Parent as StackPanel).Children.Remove(this);
+                }
             }
             else
             {

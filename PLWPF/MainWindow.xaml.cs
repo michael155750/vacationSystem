@@ -29,9 +29,8 @@ namespace PLWPF
         {
             InitializeComponent();
             GuestRequest_UserControl guestRequest_UserControl = new GuestRequest_UserControl();
-            UserControlGrid.Children.Add(guestRequest_UserControl);
+            UserControlGrid.Children.Add(guestRequest_UserControl); 
         }
-
 
         private void HostingUnitOwnerButton_Click(object sender, RoutedEventArgs e)
         {
@@ -48,7 +47,6 @@ namespace PLWPF
         {
             Owner_window ow = new Owner_window();
             ow.ShowDialog();
-
         }
     }
 }

@@ -25,24 +25,27 @@ namespace PLWPF
     {
         BL.Ibl bl = new FactoryBL().GetBL();
         GuestRequest guestRequest = new GuestRequest();
+        List<HostingUnit> HostingUnitList;
+
         public MachHostingUnit_UserControl()
         {
             InitializeComponent();
         }
 
-        public MachHostingUnit_UserControl(GuestRequest g)
+        public MachHostingUnit_UserControl(GuestRequest g, List<HostingUnit> h)
         {
             guestRequest = g;
-            List<HostingUnit> HostingUnitList = bl.MachUnitToRequest(guestRequest);
+            HostingUnitList = h;
+
             InitializeComponent();
-            foreach (var h in HostingUnitList)
+
+            foreach (var hu in HostingUnitList)
             {
-                HostingUnit_UserControl hostingUnit_UserControl = new HostingUnit_UserControl(h);
+                HostingUnit_UserControl hostingUnit_UserControl = new HostingUnit_UserControl(hu , guestRequest);
                 Uc_StackPanel.Children.Add(hostingUnit_UserControl);
-            }
-            if (HostingUnitList.Count() == 0)
-                MessageBox.Show("Sorry, their is no hosting unit maching to your request!!");
-            
+            }            
+
         }
+
     }
 }

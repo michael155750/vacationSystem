@@ -15,12 +15,14 @@
             <RowDefinition Height="*"/>
             <RowDefinition Height="*"/>
         </Grid.RowDefinitions>
-        <TextBlock  x:Name="HosringUnitName_TextBlock" Text="{Binding Path=HostingUnitName, Mode=OneTime, UpdateSourceTrigger =Default}" FontSize="30" Grid.Row="0" Grid.ColumnSpan="2"/>
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2">
+            <TextBlock  x:Name="HostingUnitName_TextBlock" Text="{Binding Path=HostingUnitName, Mode=OneWay}" FontSize="30" />
+        </StackPanel>
         <StackPanel Grid.Row="1" Grid.Column="0">
             <TextBlock Text="Hosting unit Sub-area: "/>
-            <TextBlock x:Name="HostingUnitSubArea_TextBlock" Background="White" Text="{Binding Path= SubArea, Mode=OneTime, UpdateSourceTrigger =Default}"/>
-            <TextBlock Text="Hosting unit Sub-area: "/>
-            <TextBlock x:Name="HostingUnitArea_TextBlock" Background="White" Text="{Binding Path=Area, Mode=OneTime, UpdateSourceTrigger =Default}"/>
+            <TextBlock x:Name="HostingUnitSubArea_TextBlock" Background="White" Text="{Binding Path= SubArea, Mode=OneTime}"/>
+            <TextBlock Text="Hosting unit area: "/>
+            <TextBlock x:Name="HostingUnitArea_TextBlock" Background="White" Text="{Binding Path=Area, Mode=OneTime}"/>
             <TextBlock Text="Number of beds in the unit: "/>
             <TextBox x:Name="HostingUnitBeds_Textblock" Text="{Binding Path= Beds, Mode=OneTime, UpdateSourceTrigger =Default}"/>
         </StackPanel>
@@ -36,6 +38,7 @@
             <StackPanel Grid.Column="1">
                 <CheckBox x:Name="HostingUnitChildrensAttractions_CheckBox" Content="Childrens Attractions" IsChecked ="{Binding Path=ChildrensAttractions, Mode=OneTime, UpdateSourceTrigger =Default}"/>
                 <CheckBox x:Name="HostingUnitGarden_CheckBox" Content="Garden" IsChecked ="{Binding Path=Garden, Mode=OneTime, UpdateSourceTrigger =Default}"/>
+                <Button x:Name="selectButton" Margin="0,40,0,0" Content="Select this unit" Click="Owner_Button_Click"/>
             </StackPanel>
         </Grid>
     </Grid>

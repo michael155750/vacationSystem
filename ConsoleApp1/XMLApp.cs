@@ -16,7 +16,6 @@ namespace ConsoleApp1
             XmlSerializer x = new XmlSerializer(DataSource.ordersList.GetType());
             FileStream fs = new FileStream(@"XML_OrderFile.xml", FileMode.Create);
             x.Serialize(fs, DataSource.ordersList);
-
         }
     }
 }

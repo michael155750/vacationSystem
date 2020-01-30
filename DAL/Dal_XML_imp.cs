@@ -49,8 +49,8 @@ namespace DAL
 
         private Dal_XML_imp()
         {
-            Thread t1 = new Thread(downloadBanks);
-            t1.Start();
+            //Thread t1 = new Thread(downloadBanks);
+            //t1.Start();
 
             if (!File.Exists(RequestRootPath))
             {
