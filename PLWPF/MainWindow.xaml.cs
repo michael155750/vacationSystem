@@ -23,32 +23,50 @@ namespace PLWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        
         BL.Ibl bl = new FactoryBL().GetBL();
-
+    
         public MainWindow()
         {
-            InitializeComponent();
-            GuestRequest_UserControl guestRequest_UserControl = new GuestRequest_UserControl();
-            UserControlGrid.Children.Add(guestRequest_UserControl);
+            try
+            {
+                InitializeComponent();
+                GuestRequest_UserControl guestRequest_UserControl = new GuestRequest_UserControl();
+                UserControlGrid.Children.Add(guestRequest_UserControl);
+            }
+            catch(Exception ex) { MessageBox.Show(ex.Message); }
+
         }
 
 
         private void HostingUnitOwnerButton_Click(object sender, RoutedEventArgs e)
         {
-            HostingUnitOwner hostingUnitOwner = new HostingUnitOwner();
-            hostingUnitOwner.ShowDialog();
+            try
+            {
+                HostingUnitOwner hostingUnitOwner = new HostingUnitOwner();
+                hostingUnitOwner.ShowDialog();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
         private void SingIn_Click(object sender, RoutedEventArgs e)
         {
-            HostSingIn hostSingIn = new HostSingIn();
-            hostSingIn.ShowDialog();
+            try
+            {
+                HostSingIn hostSingIn = new HostSingIn();
+                hostSingIn.ShowDialog();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void Owner_Button_Click(object sender, RoutedEventArgs e)
         {
-            Owner_window ow = new Owner_window();
-            ow.ShowDialog();
-
+            try
+            {
+                Owner_window ow = new Owner_window();
+                ow.ShowDialog();
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
+    
     }
 }

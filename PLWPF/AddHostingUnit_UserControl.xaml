@@ -24,7 +24,7 @@
             <TextBox x:Name="HostingUnitName_TextBox" Text="{Binding Path=HostingUnitName, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.Column="0">
-            <TextBlock Text="Enter hosting unit Suba-area: "/>
+            <TextBlock Text="Enter hosting unit Sub-area: "/>
             <TextBox x:Name="HostingUnitSubArea_Textbox" Text="{Binding Path= SubArea, Mode=OneWayToSource, UpdateSourceTrigger =Explicit}"/>
         </StackPanel>
             <StackPanel Grid.Row="3" Grid.Column="0">

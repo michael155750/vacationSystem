@@ -25,15 +25,19 @@ namespace PLWPF
 
         public HostSingIn()
         {
-            InitializeComponent();
+            try
+            {
+                InitializeComponent();
 
-            HostingUnit hostingUnit = new HostingUnit();
-            hostingUnit.Owner = new Host();
-            hostingUnit.Owner.BankBranchDetails = new Bankdetails();
+                HostingUnit hostingUnit = new HostingUnit();
+                hostingUnit.Owner = new Host();
+                hostingUnit.Owner.BankBranchDetails = new Bankdetails();
 
-            HostDetails_UserControl hostDetails_UserControl = new HostDetails_UserControl(hostingUnit);
-            UcGrid.Children.Add(hostDetails_UserControl);
-            UcGrid.DataContext = hostingUnit.Owner;
+                HostDetails_UserControl hostDetails_UserControl = new HostDetails_UserControl(hostingUnit);
+                UcGrid.Children.Add(hostDetails_UserControl);
+                UcGrid.DataContext = hostingUnit.Owner;
+            }
+            catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
         private void SaveHostDetails_Click(object sender, RoutedEventArgs e)
         {

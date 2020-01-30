@@ -27,14 +27,24 @@ namespace PLWPF
 
         public HostDetails_UserControl()
         {
-            InitializeComponent();
-            MainGrid.DataContext = hostingUnit.Owner;
+            try
+            {
+                InitializeComponent();
+                MainGrid.DataContext = hostingUnit.Owner;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
         public HostDetails_UserControl(HostingUnit h)
         {
-            hostingUnit = h;
-            InitializeComponent();
-            MainGrid.DataContext = hostingUnit.Owner;
+            try
+            {
+                hostingUnit = h;
+                InitializeComponent();
+                MainGrid.DataContext = hostingUnit.Owner;
+            } catch(Exception ex) { MessageBox.Show(ex.Message); }
         }
 
         private void SaveHostDetails_Click(object sender, RoutedEventArgs e)

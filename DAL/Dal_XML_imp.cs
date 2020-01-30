@@ -45,7 +45,7 @@ namespace DAL
         private const string OrderRootPath = @"..\..\..\XML_files\XML_Order.xml";
         private const string ConfigRootPath = @"..\..\..\XML_files\XML_Config.xml";
         private const string BanksRootPath = @"..\..\..\XML_files\XML_Banks.xml";
-        private const string BanksWebRootPath = @"..\..\..\XML_files\XML_BanksFromWeb.xml";
+        private const string BanksWebRootPath = @"..\..\XML_banksInternet.xml";
 
         private Dal_XML_imp()
         {
@@ -130,12 +130,15 @@ namespace DAL
 
         private void downloadBanks()
         {
-            WebClient wc = new WebClient();
+            
+                WebClient wc = new WebClient();
+           
+
+
+
             try
             {
-                string BanksServerPath =
-                    @"http://www.boi.org.il/he/BankingSupervision/BanksAndBranchLocations/Lists/BoiBankBranchesDocs/atm.xml";
-
+                string BanksServerPath = "https://www.boi.org.il/he/BankingSupervision/BanksAndBranchLocations/Lists/BoiBankBranchesDocs/atm.xml";
                 wc.DownloadFile(BanksServerPath, BanksWebRootPath);
             }
             catch (Exception)
